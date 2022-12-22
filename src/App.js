@@ -3,10 +3,8 @@ import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './Navbar';
 import Offer from './Offer';
-import Request from './Request';
-import About from "./About";
-import Team from './Team';
 import Footer from './Footer';
+import Landing from './Landing';
 import How from './How';
 
 function App() {
@@ -14,14 +12,13 @@ function App() {
     <div className="App">
       <Navbar/>
       <Routes>
-        <Route path="/" element={<Request/>}/>
+        <Route path="/" element={<Landing/>}/>
+        {/* <Route path="/FAQS" element={<Offer/>}/> */}
         <Route path="/howtoRent" element={<How/>}/>
-        <Route path="/FAQS" element={<Offer/>}/>
+        {/* <Route path="/FAQS" element={<Offer/>}/> */}
         <Route path="/contact" element={<Offer/>}/>
         <Route path="/offerARide" element={<Offer/>}/>
       </Routes>
-      <About/>
-      <Team/>
       <Footer/>
     </div>
   );

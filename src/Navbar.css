@@ -54,8 +54,9 @@
     color: black;
 }
 .link:hover{
-    color: rgb(217, 217, 6);
+    /* color: rgb(217, 217, 6); */
     /* color: yellow; */
+    color: red;
 }
 #offer{
     background-color: yellow;
