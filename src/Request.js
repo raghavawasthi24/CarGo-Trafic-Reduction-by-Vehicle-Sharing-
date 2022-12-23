@@ -74,56 +74,7 @@ const Request = () => {
     else {
       errors.branch = "";
     }
-    // if (!cphone.test(formvalues.mobile_number)) {
-    //   seterror(false);
-    //   errors.mobile_number = "Invalid mobile number";
-    // }
-    // else {
-    //   errors.mobile_number = "";
-    // }
-
-
-
-    // if (!cemail.test(formvalues.email)) {
-    //   seterror(false);
-    //   errors.email = "Invalid email";
-    // }
-    // else {
-    //   errors.email = "";
-    // }
-
-
-
-    // if (!cpassword.test(formvalues.password)) {
-    //   seterror(false);
-    //   errors.password = "Weak password";
-    // }
-    // else {
-    //   errors.password = "";
-    // }
-
-
-
-
-    // if (formvalues.password != formvalues.password2) {
-    //   seterror(false);
-    //   errors.password2 = "Password not matched";
-    // }
-    // else {
-    //   errors.password2 = "";
-    // }
-
-
-
-
-    // if (formvalues.gender == "") {
-    //   seterror(false);
-    //   errors.gender = "Select gender";
-    // }
-    // else {
-    //   errors.gender = "";
-    // }
-
+   
 
 
     return errors;
