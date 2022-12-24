@@ -2,9 +2,12 @@ import React,{useState} from 'react';
 import "./Request.css";
 import redCircle from "./images/redCircle.png";
 import blueCircle from"./images/blueCircle.png";
+import axios from 'axios';
+import ShowRides from './ShowRides';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const Request = () => {
-  const initialvalues = {
+  let initialvalues = {
     pickup: "",
     destination: "",
     date: "",
@@ -14,6 +17,7 @@ const Request = () => {
 
   const [formvalues, setformvalues] = useState(initialvalues);
   const [error, seterror] = useState(true);
+  const navigate=useNavigate();
   const [formerror, setformerror] = useState({});
 
   const userHandler = (e) => {
@@ -83,7 +87,15 @@ const Request = () => {
     e.preventDefault();
     setformerror(errors_form());
     if(error==true){
-      console.log(formvalues);
+      axios.get(`https://web-production-0189.up.railway.app/vehicle/showrides/${formvalues.pickup}/${formvalues.destination}`)
+      .then(res=>{
+        console.log(res.data);
+        <ShowRides id={res.data.id} source={res.data.source} destination={res.data.destination} time={res.data.time} date={res.data.date} pricing={res.data.price} vehicle={res.data.vehicle}/>
+        navigate("/showRide")
+      }).catch(err=>{
+        console.log(err)
+      })
+      // console.log(formvalues);
     }
   }
 
@@ -130,7 +142,7 @@ const Request = () => {
 
    <div>
      {/* <input type="submit" value={verified?"Register":""} /> */}
-     <input type="submit" className='submit' value="Register"/>
+     <input type="submit" className='submits' value="Register"/>
      {/* <NavLink to="/" type="submit" className="registerbtn">Register</NavLink> */}
    </div>
 

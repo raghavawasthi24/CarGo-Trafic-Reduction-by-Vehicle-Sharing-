@@ -1,0 +1,252 @@
+/* body {
+    overflow-x: hidden;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  } */
+  
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+  }
+  
+  .navBar{
+    height: 11vh;
+    width: 100vw;
+    background-color:white;
+    display: flex;
+    box-sizing: content-box;
+    justify-content: center;
+    position: fixed; 
+    z-index: 10;
+  }
+  
+  .navBar img{
+    position: relative;
+    top: 1rem;
+    /* left: 5rem; */
+    height:7vh;
+    width: 20vh;
+    ;
+  }
+  
+  .backToHome h2{
+    position: relative;
+    left:35rem;
+    bottom: 2.5rem;
+  }
+  
+  .backToHome img{
+    position: relative;
+    left:32rem;
+    height: 2rem;
+    width: 2rem;
+  }
+  
+  
+  .main{
+    height:auto;
+    width: inherit;
+    background-color: yellow;
+      padding-bottom: 5rem;
+  }
+  
+  .text{
+    padding-top: 8rem;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .text h1{
+    font-size: 2.5rem;
+    height: 20%;
+    width: 70%;
+  }
+  
+  .car{
+    height: 80%;
+    width: 100%;
+    position: relative;
+    top: 2rem;
+    border: 0;
+    border-radius: 30px;
+    background-clip: yellow;
+  }
+  
+  .mainDiv{
+    display:flex;
+    justify-content: space-around;
+    padding-right: 4rem;
+  }
+  .carDiv{
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .form{
+    padding:2rem;
+    box-sizing: content-box;
+    display: flex;
+    flex-direction: column;
+    width: 29rem;
+    border-radius: 20px;
+    padding-top:2rem;
+    background-color: #ffffff;
+  }
+  .form1{
+    padding:2rem;
+    box-sizing: content-box;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 100%;
+    border-radius: 20px;
+    padding-top:2rem;
+    background-color: #ffffff;
+  }
+  
+  
+  .field{
+    height: 2rem;
+    width: 27rem;
+    outline: 0;
+    border: 0;
+    background: transparent;
+    border-bottom: 2px solid #999999;
+    transition: 0.3s ease;
+  }
+  .field1{
+    height:3rem;
+    width: 100%;
+    /* outline: 0; */
+    /* border: 0; */
+    /* background: transparent; */
+    border-bottom: 2px solid #999999;
+    transition: 0.3s ease;
+  }
+  
+  .rideText{
+    width: 20rem;
+    font-size:2rem;
+    font-weight: bold;
+  }
+  
+  span{
+    color: #fec704;
+  }
+  
+  ::placeholder{
+    font-size: 1rem;
+    font-weight: 500;
+    position: relative;
+    left: .5rem;
+  }
+    
+  .submit{
+    margin-left: -2rem;
+    border: 0;
+  }
+  
+  
+  #submit{
+    height: 3rem;
+    width: 33rem;
+    color: #fec704;
+    border: 0;
+    position: relative;
+    top: 2rem;
+    border-radius: 0 0 20px 20px;
+    background-color:black;
+    font-size: large;
+  }
+  #submit1{
+    height: 3rem;
+    width: 102%;
+    color: #fec704;
+    
+    background-color:black;
+    font-size: large;
+  }
+   
+  .contactMain{
+    height: 100vh;
+    width: 100vw;
+    background-color:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .contactHeading{
+    position: relative;
+    left: 2rem;
+  }
+  
+  .container{
+    height: 80%;
+    width: 80%;
+    background-color:white;
+    display: flex;
+  }
+  
+  .contact{
+    height: 100%;
+    width: 50%;
+    background-color: white;
+    }
+  
+  .map{
+    height: 100%;
+    width: 50%;
+    
+  }
+  .map img{
+    height: 100%;
+    width: 100%;
+  }
+  
+  .faqMain{
+    height: 100%;
+    width: 100%;
+    background-color: blue;
+  }
+  
+  .feedbackMain{
+    height:100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: yellow;
+  }
+  
+  .feedbackContainer{
+    height: 80%;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:blue;
+  }
+  
+  .feedback{
+    height: 100%;
+    width: 50%;
+    color: white;
+    background-color:red;
+    padding-left: 2rem;
+  }
+  
+  .input{
+    height:6%;
+    width: 90%;
+  }
+  
+  textarea{
+    min-height: 20%;
+    min-width: 90%;
+  }

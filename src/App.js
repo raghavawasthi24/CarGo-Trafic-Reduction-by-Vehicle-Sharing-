@@ -6,6 +6,7 @@ import Offer from './Offer';
 import Footer from './Footer';
 import Landing from './Landing';
 import How from './How';
+import ShowRides from './ShowRides';
 
 function App() {
   return (
@@ -18,8 +19,10 @@ function App() {
         {/* <Route path="/FAQS" element={<Offer/>}/> */}
         <Route path="/contact" element={<Offer/>}/>
         <Route path="/offerARide" element={<Offer/>}/>
+        <Route path="/showRide" element={<ShowRides/>}/>
       </Routes>
       <Footer/>
+      
     </div>
   );
 }
