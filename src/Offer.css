@@ -1,5 +1,40 @@
-.offer_ride{
-    width: 100vw;
-    height: 100vh;
-    background-color: aqua;
+.offer{
+    width:100%;
+    /* position: relative; */
+    /* height: 40rem; */
+    
+}
+#driver{
+    width:100%;
+    height:auto;
+    position: relative;
+}
+#driver p{
+    width:40%;
+    position: absolute;
+    bottom:2rem;
+    left:2rem;
+    font-size: 3rem;
+    color: white;
+    font-weight: 600;
+}
+#driver img{
+    width:100%;
+    height: auto;
+    margin-top: -4rem;
+}
+.offerRide{
+    width:40rem;
+    height: auto;
+    background-color: red;
+    margin:0 auto;
+}
+.offersigninputs{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.offerregisterfield input{
+    width:30rem;
 }

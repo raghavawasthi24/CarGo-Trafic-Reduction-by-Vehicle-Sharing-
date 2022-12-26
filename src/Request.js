@@ -36,7 +36,7 @@ const Request = () => {
     }
     else {
       seterror(false);
-      errors.pickup = "Please enter pickup";
+      errors.pickup = "**Please enter pickup";
     }
 
 
@@ -48,35 +48,26 @@ const Request = () => {
     }
     else {
       seterror(false);
-      errors.destination = "Please enter destination";
+      errors.destination = "**Please enter destination";
     }
 
 
     if (formvalues.date=="") {
       seterror(false);
-      errors.year = "Please select Date";
+      errors.date = "**Please select Date";
     }
     else {
-      errors.year = "";
+      errors.date = "";
     }
 
-
-
-    // if (formvalues.time == "") {
-    //   seterror(false);
-    //   errors.branch = "Please select Time";
-    // }
-    // else {
-    //   errors.branch = "";
-    // }
 
 
     if (formvalues.vacancy == "") {
       seterror(false);
-      errors.branch = "Please select Vacancy";
+      errors.vacancy = "**Please select Passenger";
     }
     else {
-      errors.branch = "";
+      errors.vacancy = "";
     }
    
 
@@ -117,14 +108,18 @@ const Request = () => {
 
        <div className="signinputs">
          <div className="pickup registerfield">
-          <img src={redCircle}/>
-         <input type="text" placeholder="Select Pickup" name="pickup" value={formvalues.pickup} onChange={userHandler} />
+          <div className='inputfield'>
+            <img src={redCircle}/>
+                     <input type="text" placeholder="Select Pickup" name="pickup" value={formvalues.pickup} onChange={userHandler} />
+          </div>
          <p className='throwerror'>{formerror.pickup}</p>
        </div>
 
      <div className="destination registerfield">
-        <img src={blueCircle}/>
-        <input type="text" name="destination" placeholder="Select Destination" value={formvalues.destination} onChange={userHandler} />
+        <div className='inputfield'>
+          <img src={blueCircle}/>
+          <input type="text" name="destination" placeholder="Select Destination" value={formvalues.destination} onChange={userHandler} />
+        </div>
         <p className='throwerror'>{formerror.destination}</p>
      </div>
 
@@ -134,16 +129,14 @@ const Request = () => {
      </div>
 
      <div className="vacancy registerfield">
-       <input type="number" name="vacancy" placeholder="Vacancy" onChange={userHandler} value={formvalues.vacancy} />
+       <input type="number" name="vacancy" placeholder="Passenger" onChange={userHandler} value={formvalues.vacancy} />
        <p className='throwerror'>{formerror.vacancy}</p>
      </div>
    </div>
 
 
    <div>
-     {/* <input type="submit" value={verified?"Register":""} /> */}
      <input type="submit" className='submits' value="Register"/>
-     {/* <NavLink to="/" type="submit" className="registerbtn">Register</NavLink> */}
    </div>
 
  </form>
