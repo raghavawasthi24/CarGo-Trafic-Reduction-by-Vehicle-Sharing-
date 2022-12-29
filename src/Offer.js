@@ -1,7 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
 import "./Offer.css";
-import driver from "./images/driver.jpg";
+import driver from "./images/driver2.jpg";
+import offerRide from "./images/offerRide.png";
 import axios from 'axios';
 
 const Offer = () => {
@@ -105,8 +106,12 @@ const Offer = () => {
       <img src={driver}/>
        <p>Start. Share your Vehicle with others.</p>
     </div>
-    <div className='offerRide'>
-    <form onSubmit={validateform}>
+    <div className='offerSec'>
+      <div className='offerPart'>
+        <h2>Publish Your Ride</h2>
+        <img src={offerRide} className="offerRideimg"/>
+      </div>
+       <form onSubmit={validateform} className="formControl">
 
         <div className="offersigninputs">
 
@@ -161,6 +166,9 @@ const Offer = () => {
 
    </form>
     </div>
+    
+    
+    
   </div>
   )
 }

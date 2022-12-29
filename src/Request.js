@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useEffect, useState} from 'react';
 import "./Request.css";
 import redCircle from "./images/redCircle.png";
 import blueCircle from"./images/blueCircle.png";
@@ -6,7 +6,12 @@ import axios from 'axios';
 import ShowRides from './ShowRides';
 import { Navigate, useNavigate } from 'react-router-dom';
 
-const Request = () => {
+export let Ridehandler=[
+
+]
+
+
+const Request = (handleData) => {
   let initialvalues = {
     pickup: "",
     destination: "",
@@ -15,10 +20,13 @@ const Request = () => {
     vacancy: "",
   };
 
+  
+
   const [formvalues, setformvalues] = useState(initialvalues);
   const [error, seterror] = useState(true);
   const navigate=useNavigate();
   const [formerror, setformerror] = useState({});
+  const[rides,setRides]=useState([]);
 
   const userHandler = (e) => {
     const { name, value } = e.target;
@@ -80,8 +88,17 @@ const Request = () => {
     if(error==true){
       axios.get(`https://web-production-0189.up.railway.app/vehicle/showrides/${formvalues.pickup}/${formvalues.destination}`)
       .then(res=>{
+        Ridehandler=[];
         console.log(res.data);
-        <ShowRides id={res.data.id} source={res.data.source} destination={res.data.destination} time={res.data.time} date={res.data.date} pricing={res.data.price} vehicle={res.data.vehicle}/>
+        // res.data.map((val)=>{
+        // return(<ShowRides id={val.id} source={val.source} destination={val.destination} time={val.time} date={val.date} pricing={val.price} vehicle={val.vehicle}/>)
+        // })
+        // 
+        // setRidelist(res.data);
+        setRides(res.data);
+        Ridehandler.push(res.data);
+        console.log(Ridehandler);
+      
         navigate("/showRide")
       }).catch(err=>{
         console.log(err)
@@ -89,6 +106,8 @@ const Request = () => {
       // console.log(formvalues);
     }
   }
+
+ 
 
 
   return (
