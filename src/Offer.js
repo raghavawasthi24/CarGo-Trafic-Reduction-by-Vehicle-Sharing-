@@ -62,11 +62,27 @@ const Offer = () => {
       errors.date = "";
     }
 
+    
+    if (formvalues.time=="") {
+      seterror(false);
+      errors.time = "**Please select Time";
+    }
+    else {
+      errors.time = "";
+    }
+
+    if (formvalues.vehicle=="") {
+      seterror(false);
+      errors.vehicle = "**This field is required";
+    }
+    else {
+      errors.vehicle = "";
+    }
 
 
     if (formvalues.Vacancy == "") {
       seterror(false);
-      errors.Vacancy = "**Please select Passenger";
+      errors.Vacancy = "**This field is Required";
     }
     else {
       errors.Vacancy = "";
@@ -118,7 +134,7 @@ const Offer = () => {
           <div className="offerpickup offerregisterfield">
           <div className='offerinputfield'>
              {/* <img src={redCircle}/> */}
-             <input type="text" placeholder="Select Pickup" name="source" value={formvalues.source} onChange={userHandler} />
+             <input type="text" placeholder="Select Source" name="source" value={formvalues.source} onChange={userHandler} />
           </div>
           <p className='offerthrowerror'>{formerror.source}</p>
           </div>

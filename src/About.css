@@ -15,6 +15,7 @@
     margin:2rem 0;
     font-size: 4rem;
     color:#4054B2
+    
 }
 .features{
     width: 100%;
@@ -33,13 +34,15 @@
     padding: 10px;
 }
 .features_num{
-    width:50px;height: 50px;
+    width:50px;
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
     /* font-size: 2rem; */
-    background-color: #4267b2;
-    color: white;
+    /* background-color: #4267b2; */
+    background-color: #b9bbbd;
+    color: black;
     padding: 20px;
     border-radius: 50%;
 }
@@ -50,5 +53,6 @@
     margin-top: 1rem;
     font-size: 20px;
     font-weight: bold;
+    color: #666769;
     /* margin-left:10px */
 }

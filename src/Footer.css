@@ -2,8 +2,9 @@
 .footer{
     width: 100%;
     /* background-color: rgb(187, 184, 184); */
-    background-color: yellow;
-    /* color: white; */
+    /* background-color: #4054B2; */
+    background-color: rgba(0, 0, 0, 0.822);
+    color: white;
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
@@ -13,6 +14,10 @@
 .footertxt{
     width:20rem;
     height: auto;
+}
+.logo-footer{
+    color: white;
+    font-size: 3rem;
 }
 .footertxt p{
     margin-top: 1rem;
@@ -26,7 +31,7 @@
 }
 .links{
     text-decoration: none;
-    color: black;
+    color: white;
     margin-top: 0.5rem;
 }
 .footerContact h3{

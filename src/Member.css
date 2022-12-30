@@ -33,8 +33,12 @@
     /* z-index: 9; */
     background-color: white;
 }
+.memberDetails p{
+    color: #3f4040;
+}
 .memberMedia{
     display: flex;
+    justify-content: space-between;
     }
 
 .mediaimg{

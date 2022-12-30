@@ -7,7 +7,8 @@ const Footer = () => {
   return (
     <div className='footer'>
         <div className='footertxt'>
-           <img src={logo}/>
+           {/* <img src={logo}/> */}
+           <h1 className='logo-footer'>CarGo.</h1>
            <p>With so many options for rental service, you must choose the best company. We give you a wide range of quality rides!</p>
         </div>
 

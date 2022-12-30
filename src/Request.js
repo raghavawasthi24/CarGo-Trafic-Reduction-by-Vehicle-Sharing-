@@ -68,6 +68,7 @@ const Request = (handleData) => {
 
 
 
+
     if (formvalues.vacancy == "") {
       seterror(false);
       errors.vacancy = "**Please select Passenger";
@@ -159,7 +160,7 @@ const Request = (handleData) => {
 
 
    <div>
-     <input type="submit" className='submits' value="Register"/>
+     <input type="submit" className='submits' value="Search For Rides"/>
    </div>
 
  </form>
