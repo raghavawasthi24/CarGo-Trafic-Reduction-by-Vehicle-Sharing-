@@ -9,17 +9,18 @@ const Navbar = () => {
   
   return (
     <div className="navbar">
-        <img src={logo}/>
-        <div className='search_field'>
+        {/* <img src={logo}/> */}
+        <h1 className='logo'>CarGo.</h1>
+        {/* <div className='search_field'>
           <input type="search" id='search_bar' placeholder='Tell us your location'/>
           <img src={Arrow}/>
-        </div>
+        </div> */}
         <nav>
           <Link to="/" className='link'>Home</Link>
           <Link to="/howtoRent" className='link'>How to Rent</Link>
           {/* <Link to="/FAQS" className='link'>FAQS</Link> */}
           <Link to="/contact" className='link'>Contact Us</Link>
-          <Link to="/offerARide" className='link' id="offer">Offer A Ride</Link>
+          <Link to="/offerARide" id="offer">Offer A Ride</Link>
         </nav> 
     </div>
   )

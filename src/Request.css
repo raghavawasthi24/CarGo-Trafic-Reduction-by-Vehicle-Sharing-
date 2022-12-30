@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
 .request{
-    background-color: yellow;
+    background-color: #f0f2f5;
     width:100%;
     height:auto;
     font-family: 'Roboto', sans-serif;
@@ -33,7 +33,7 @@
 .requestSec{
     width:50%;
     height:100%;
-    background-color: yellow;
+    background-color: #f0f2f5;
     display: flex;
     justify-content: center;
     align-items: center;

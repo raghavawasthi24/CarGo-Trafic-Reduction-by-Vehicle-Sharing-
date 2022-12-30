@@ -1,0 +1,44 @@
+.ride{
+    /* display: flex; */
+    width:70%;
+    height:auto;
+    border: 1px solid black;
+    margin:1rem 1rem 1rem 0;
+    font-weight: 400;
+}
+.stats{
+    background-color: #d9dad7;
+    display: flex;
+    justify-content: space-between;
+    padding:0.5rem
+}
+.driver-profile{
+    display: flex;
+}
+.driver-profile p{
+    margin-left:0.8rem
+}
+.driver-profile img{ 
+    width:2rem;
+    height: 2rem;
+}
+#price{
+    color:green;
+}
+
+.overview-ride{
+    display: flex;
+    justify-content: space-between;
+    padding:0.5rem;
+}
+.btn-request button{
+    background-color: yellow;
+    color:black;
+    padding:0.5rem;
+    border: none;
+    margin: 0.5rem;
+}
+.btn-request button:hover{
+    background-color: black;
+    color: white;
+}

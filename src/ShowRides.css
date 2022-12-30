@@ -1,6 +1,7 @@
-.showrides{
-    width:100vw;
-    height: 100vh;
-    z-index: 99;
-    color:red;
+.showRides{
+    padding:1rem
+}
+.showRides h2{
+    font-size: 3rem;
+
 }

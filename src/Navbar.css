@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
 .navbar{
     width:100%;
-    height: 100px;
-    background-color: white;
+    height: auto;
+    background-color: #4267b2;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     font-family: 'Roboto', sans-serif;
+    padding:1rem 0;
 }
 .navbar nav{
     height: 100%;
@@ -48,37 +49,29 @@
     padding:13px 10px;
   
 }
+.logo{
+    color: white;
+    font-size: 3rem;
+    margin-left: 3rem;
+}
 .link{
     text-decoration: none;
     margin:0 1rem;
-    color: black;
+    color: white;
+    transition: 0.09s all ease-in-out;
 }
 .link:hover{
-    /* color: rgb(217, 217, 6); */
-    /* color: yellow; */
-    color: red;
+    margin-bottom: 0.1rem;
+    text-decoration: underline;
 }
 #offer{
-    background-color: yellow;
+    background-color: white;
     color:black;
     padding: 10px 15px;
     border-radius: 20px;
-    /* border:1px solid orangered; */
-
-    
-    moz-transition: all .2s ease-in-out;
-    -o-transition: all .2s ease-in-out;
-    -webkit-transition: all .2s ease-in-out;
-    transition: all .2s ease-in-out;
-
+    margin:0 1rem;
+    text-decoration: none;
 }
 #offer:hover{
-    background-color: white;
-    color: black;
-
-    background-position: 100% 0;
-    moz-transition: all .2s ease-in-out;
-    -o-transition: all .2s ease-in-out;
-    -webkit-transition: all .2s ease-in-out;
-    transition: all .2s ease-in-out;
+    color:#4267b2;
 }
