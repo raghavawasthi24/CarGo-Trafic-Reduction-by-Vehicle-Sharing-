@@ -13,7 +13,7 @@ const ShowRides = () => {
   return (
     <div className='showRides'>
       <h2> <span>{Ridehandler[0][0].source}</span> <span>---</span> <span>{Ridehandler[0][0].destination}</span></h2>
-      <p>{Ridehandler[0][0].date}</p>
+      <p>Date : {Ridehandler[0][0].date}</p>
         {Ridehandler[0].map((val)=>{
           return(
             <div className="rideShow">
@@ -21,6 +21,10 @@ const ShowRides = () => {
             </div>
           )
         })}
+        <div className='rides-filter'>
+          <p>Filter by Vehicle</p>
+          <
+        </div>
     </div>
   )
 }

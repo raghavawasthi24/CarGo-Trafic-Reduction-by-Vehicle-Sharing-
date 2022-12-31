@@ -23,11 +23,9 @@ const Request = (handleData) => {
   
 
   const [formvalues, setformvalues] = useState(initialvalues);
-  const [error, seterror] = useState(true);
+  const [error, seterror] = useState(false);
   const navigate=useNavigate();
   const [formerror, setformerror] = useState({});
-  const [iserror,setIserror]=useState(false)
-  const[rides,setRides]=useState([]);
 
   const userHandler = (e) => {
     const { name, value } = e.target;
@@ -80,18 +78,16 @@ const Request = (handleData) => {
     return errors;
   }
 
-  useEffect(()=>{
-    if(error==true)
-     setIserror(true)
-  },[error])
-
 
   const validateform = (e) => {
     e.preventDefault();
     setformerror(errors_form());
-    console.log(formerror);
-    if(iserror==true){
-      axios.get(`https://web-production-0189.up.railway.app/vehicle/showrides/${formvalues.pickup}/${formvalues.destination}`)
+    // console.log(formerror);
+  }
+
+  useEffect(()=>{
+    if(error==true){
+      axios.get(`https://web-production-0189.up.railway.app/vehicle/showrides/${formvalues.pickup}/${formvalues.destination}/${formvalues.date}/${formvalues.vacancy}`)
       .then(res=>{
         Ridehandler=[];
         console.log(res.data);
@@ -100,7 +96,6 @@ const Request = (handleData) => {
         // })
         // 
         // setRidelist(res.data);
-        setRides(res.data);
         Ridehandler.push(res.data);
         console.log(Ridehandler);
       
@@ -110,7 +105,7 @@ const Request = (handleData) => {
       })
       // console.log(formvalues);
     }
-  }
+  },[error])
 
  
 

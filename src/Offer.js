@@ -29,14 +29,15 @@ const Offer = () => {
   }
 
   const errors_form=()=> {
+    seterror(true);
     const errors = {};
     const cvacancy = /^[1-9]{1}$/;
     const cprice = /^[1-9]([0-9]){0,5}$/;
 
     if (formvalues.source!="") {
       errors.source= "";
-      seterror(true);
-      console.log(error.source)
+      // seterror(true);
+      // console.log(error.source)
     }
     else {
       seterror(false);
@@ -47,8 +48,8 @@ const Offer = () => {
 
     if (formvalues.destination!="") {
       errors.destination = "";
-      seterror(true);
-      console.log(error.destination)
+      // seterror(true);
+      // console.log(error.destination)
     }
     else {
       seterror(false);

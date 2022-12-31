@@ -1,7 +1,11 @@
 .showRides{
-    padding:1rem
+    padding:1rem;
+    display: flex;
 }
 .showRides h2{
     font-size: 3rem;
 
+}
+.rides-filter{
+    background-color: red;
 }

@@ -12,7 +12,7 @@ const Ride = (props) => {
           <p>Username</p>
           <p>Ratings</p>
         </div>
-        <p id="price">{props.pricing}</p>
+        <p id="price"><span>Rs. </span>{props.pricing}</p>
         </div>
 
         <div className='overview-ride'>
