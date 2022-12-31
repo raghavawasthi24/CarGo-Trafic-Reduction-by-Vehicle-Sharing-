@@ -21,6 +21,7 @@ const Offer = () => {
   const [error, seterror] = useState(true);
   // const navigate=useNavigate();
   const [formerror, setformerror] = useState({});
+  const [issuccessful,setIssuccessful]=useState(false);
 
   const userHandler = (e) => {
     const { name, value } = e.target;
@@ -29,7 +30,8 @@ const Offer = () => {
 
   const errors_form=()=> {
     const errors = {};
-
+    const cvacancy = /^[1-9]{1}$/;
+    const cprice = /^[1-9]([0-9]){1,5}$/;
 
     if (formvalues.source!="") {
       errors.source= "";
@@ -80,12 +82,30 @@ const Offer = () => {
     }
 
 
-    if (formvalues.Vacancy == "") {
+    // if (formvalues.Vacancy == "") {
+    //   seterror(false);
+    //   errors.Vacancy = "**This field is Required";
+    // }
+    // else if(formvalues.Vacancy==0){
+    //   errors.Vacancy = "**Vacancy can't be 0";
+    // }
+    // else{
+    //   errors.Vacancy="";
+    // }
+    if(!cvacancy.test(formvalues.Vacancy)){
       seterror(false);
-      errors.Vacancy = "**This field is Required";
+      errors.Vacancy="**Vacancy must range between 1-9"
+    }
+    else{
+      errors.Vacancy="";
+    }
+
+    if (!cprice.test(formvalues.price)) {
+      seterror(false);
+      errors.price = "**This price is invalid";
     }
     else {
-      errors.Vacancy = "";
+      errors.price = "";
     }
    
 
@@ -108,13 +128,20 @@ const Offer = () => {
       })
       .then(res=>{
         console.log(res);
-        // <ShowRides id={res.data.id} source={res.data.source} destination={res.data.destination} time={res.data.time} date={res.data.date} pricing={res.data.price} vehicle={res.data.vehicle}/>
-        // navigate("/showRide")
+        successful();
       }).catch(err=>{
         console.log(err)
       })
       console.log(formvalues);
     }
+  }
+
+  const successful=()=>{
+    setIssuccessful(true)
+    setTimeout(()=>{
+      setIssuccessful(false);
+      // window.location.reload();
+    },3000)
   }
   return (
     <div className='offer'>
@@ -164,7 +191,7 @@ const Offer = () => {
       
 
        <div className="offervacancy offerregisterfield">
-         <input type="number" name="Vacancy" placeholder="Vacancy" onChange={userHandler} value={formvalues.Vacancy} />
+         <input type="text" name="Vacancy" placeholder="Vacancy" onChange={userHandler} value={formvalues.Vacancy} />
          <p className='offerthrowerror'>{formerror.Vacancy}</p>
        </div>
 
@@ -177,10 +204,14 @@ const Offer = () => {
 
 
       <div>
-        <input type="submit" className='offersubmits' value="Register"/>
+        <input type="submit" className='offersubmits' value="Publish"/>
       </div>
 
    </form>
+    </div>
+
+    <div className={issuccessful?"successful-msg":"hide"}>
+       <p>Your Ride is successfully published</p>
     </div>
     
     

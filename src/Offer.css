@@ -87,6 +87,7 @@
     padding:0.7rem 0.5rem;
     /* padding:0.6rem 9rem; */
     background-color: #4054B2;
+    margin-top: 0.5rem;
     color: white;
     outline: none;
     border: none;
@@ -97,4 +98,29 @@
 .offerthrowerror{
     color:red;
     font-size: 0.8rem;
+}
+.successful-msg{
+    width:100vw;
+    height: 100vh;
+    position: fixed;
+    top:0;
+    left:0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    /* background-color:red; */
+    overflow: hidden;
+    /* color:white; */
+}
+.successful-msg p{
+    display: flex;
+    background-color: green;
+    color: white;
+    padding:1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    z-index: 99;
+}
+.hide{
+    display: none;
 }

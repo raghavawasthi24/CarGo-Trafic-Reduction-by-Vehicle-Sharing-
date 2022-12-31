@@ -160,7 +160,7 @@ const Request = (handleData) => {
 
 
    <div>
-     <input type="submit" className='submits' value="Search For Rides"/>
+     <input type="submit" className='submits' value="Search Rides"/>
    </div>
 
  </form>
