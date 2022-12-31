@@ -1,13 +1,14 @@
 .ride{
     /* display: flex; */
-    width:70%;
+    width:98%;
     height:auto;
     border: 1px solid black;
-    margin:1rem 1rem 1rem 0;
+    margin:0 1rem 1rem 0;
     font-weight: 400;
 }
 .stats{
     background-color: #d9dad7;
+    /* background-color: white; */
     display: flex;
     justify-content: space-between;
     padding:0.5rem
@@ -30,6 +31,10 @@
     display: flex;
     justify-content: space-between;
     padding:0.5rem;
+    background-color: white;
+}
+.btn-request{
+    background-color: white;
 }
 .btn-request button{
     background-color: yellow;

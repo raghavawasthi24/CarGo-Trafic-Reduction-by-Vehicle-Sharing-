@@ -12,7 +12,7 @@ export let Ridehandler=[
 
 
 const Request = (handleData) => {
-  let initialvalues = {
+  const initialvalues = {
     pickup: "",
     destination: "",
     date: "",
