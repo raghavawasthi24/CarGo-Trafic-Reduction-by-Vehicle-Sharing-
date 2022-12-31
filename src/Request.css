@@ -91,9 +91,9 @@
     left:0;
     padding:1rem 0;
     border: none;
-    background-color: #4054B2;
+    background-color: black;
     color: white;
 }
 .submits:hover{
-    background-color: black;
+    background-color: #4054B2;
 }

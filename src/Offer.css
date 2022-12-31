@@ -86,14 +86,14 @@
     width:21.5rem;
     padding:0.7rem 0.5rem;
     /* padding:0.6rem 9rem; */
-    background-color: #4054B2;
+    background-color: black;
     margin-top: 0.5rem;
     color: white;
     outline: none;
     border: none;
 }
 .offersubmits:hover{
-    background-color: black;
+    background-color: #4054B2;
 }
 .offerthrowerror{
     color:red;

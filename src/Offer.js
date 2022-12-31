@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import "./Offer.css";
 import driver from "./images/driver2.jpg";
@@ -18,7 +18,7 @@ const Offer = () => {
   };
 
   const [formvalues, setformvalues] = useState(initialvalues);
-  const [error, seterror] = useState(true);
+  const [error, seterror] = useState(false);
   // const navigate=useNavigate();
   const [formerror, setformerror] = useState({});
   const [issuccessful,setIssuccessful]=useState(false);
@@ -31,7 +31,7 @@ const Offer = () => {
   const errors_form=()=> {
     const errors = {};
     const cvacancy = /^[1-9]{1}$/;
-    const cprice = /^[1-9]([0-9]){1,5}$/;
+    const cprice = /^[1-9]([0-9]){0,5}$/;
 
     if (formvalues.source!="") {
       errors.source= "";
@@ -112,11 +112,37 @@ const Offer = () => {
 
     return errors;
   }
+
+
   const validateform = (e) => {
     e.preventDefault();
     setformerror(errors_form());
-    if(error==true){
-      axios.post(`https://web-production-0189.up.railway.app/vehicle/publish/`,{
+    // if(error==true){
+    //   axios.post(`https://web-production-0189.up.railway.app/vehicle/publish/`,{
+    //     source: formvalues.source,
+    //     destination: formvalues.destination,
+    //     date: formvalues.date,
+    //     time: formvalues.time,
+    //     vehicle:formvalues.vehicle,
+    //     Vacancy: formvalues.Vacancy,
+    //     price:formvalues.price,
+    //     owner:3,
+    //   })
+    //   .then(res=>{
+    //     console.log(res);
+    //     successful();
+    //   }).catch(err=>{
+    //     console.log(err)
+    //   })
+    //   console.log(formvalues);
+    // }
+  }
+
+  
+
+  useEffect(()=>{
+      if(error==true){
+        axios.post(`https://web-production-0189.up.railway.app/vehicle/publish/`,{
         source: formvalues.source,
         destination: formvalues.destination,
         date: formvalues.date,
@@ -133,16 +159,17 @@ const Offer = () => {
         console.log(err)
       })
       console.log(formvalues);
-    }
-  }
+      }
+  },[error])
 
   const successful=()=>{
     setIssuccessful(true)
     setTimeout(()=>{
       setIssuccessful(false);
-      // window.location.reload();
+      window.location.reload();
     },3000)
   }
+
   return (
     <div className='offer'>
     <div id="driver">
