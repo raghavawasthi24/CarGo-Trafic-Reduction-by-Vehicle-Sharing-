@@ -26,7 +26,7 @@
 .requestTextArea p{
     font-size: 1.2rem;
 }
-.inputfield{
+.inputfields{
     display: flex;
     justify-content: center;
     align-items: center;

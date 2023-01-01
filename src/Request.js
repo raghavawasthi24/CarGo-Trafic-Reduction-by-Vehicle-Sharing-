@@ -125,7 +125,7 @@ const Request = (handleData) => {
 
        <div className="signinputs">
          <div className="pickup registerfield">
-          <div className='inputfield'>
+          <div className='inputfields'>
             <img src={redCircle}/>
                      <input type="text" placeholder="Select Pickup" name="pickup" value={formvalues.pickup} onChange={userHandler} />
           </div>
@@ -133,7 +133,7 @@ const Request = (handleData) => {
        </div>
 
      <div className="destination registerfield">
-        <div className='inputfield'>
+        <div className='inputfields'>
           <img src={blueCircle}/>
           <input type="text" name="destination" placeholder="Select Destination" value={formvalues.destination} onChange={userHandler} />
         </div>

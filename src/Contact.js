@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import "./Contact.css";
+import Navbar from './Navbar';
+import Footer from './Footer';
 
 const Contact = () => {
 
@@ -54,6 +56,8 @@ const Contact = () => {
   },[error])
 
   return (
+    <>
+    <Navbar/>
     <div className='contact-page'>
        <h2>Want To Contact Us?</h2>
        <div class="contact">
@@ -77,6 +81,8 @@ const Contact = () => {
            </div>
        </div>
     </div>
+    <Footer/>
+    </>
   )
 }
 

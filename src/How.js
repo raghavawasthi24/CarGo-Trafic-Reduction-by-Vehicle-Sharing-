@@ -4,9 +4,13 @@ import s1 from "./images/s1.webp";
 import s2 from "./images/s2.webp";
 import s3 from "./images/s3.webp";
 import s4 from "./images/s5.webp";
+import Navbar from './Navbar';
+import Footer from './Footer';
 
 const How = () => {
   return (
+    <>
+    <Navbar/>
     <div className='rent'>
         <p>HOW TO RENT</p>
         <h2 id='h2'>Make 4 Simple Steps To Rent a Car!</h2>
@@ -58,6 +62,8 @@ const How = () => {
             </div>
          </div>
     </div>
+    <Footer/>
+    </>
   )
 }
 

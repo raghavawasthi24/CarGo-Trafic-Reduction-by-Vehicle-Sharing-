@@ -1,5 +1,82 @@
 .registerUser{
     width:100vw;
-    height: 100vh;
-    background-color: red;
+    height: auto;
+    background-color:#f0f2f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    
+}
+.registerUser h1{
+    color:#4054B2;
+    font-size: 3rem;
+    margin:1rem
+}
+.registerControl{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color:white;
+    border-radius: 5px;
+    position: relative;
+    margin:1rem;
+}
+.registerPage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:20rem;
+    height: auto;
+    padding: 1.5rem 1rem;
+}
+.inputfield{
+    width:95%;
+    padding: 0.7rem 0.5rem;
+    border:0.5px solid grey;
+    outline:none;
+    margin:0.2rem;
+    border-radius: 5px;
+}
+.genderControl{
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+}
+.genderCategory{
+    width:auto;
+    display: flex;
+}
+.genderCategory input{
+    margin:5px;
+    padding:5px;
+}
+#gender{
+    display: flex;
+    align-self: flex-start;
+    margin: 0.4rem;
+    
+}
+.registererror{
+    color:red;
+    font-size: 0.8rem;
+    display: flex;
+    align-self: flex-start;
+    margin-left:0.3rem;
+}
+.registerbtn{
+    background-color: #4054B2;
+    color:white;
+}
+.loginback{
+    width: 50%;
+    padding:0.5rem 1rem;
+    border-radius: 5px;
+    color:white;
+    background-color: #42b72a;
+    border:none;
+    outline:none;
+    margin:1rem 0
 }

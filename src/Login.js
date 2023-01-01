@@ -53,6 +53,7 @@ const Login = () => {
                 password:formvalues.password
             }).then((res)=>{
                 console.log(res)
+                navigate("/home");
             }).catch((err)=>{
                 console.log(err);
             })

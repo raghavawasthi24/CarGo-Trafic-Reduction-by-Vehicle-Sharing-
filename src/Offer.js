@@ -3,6 +3,8 @@ import { useState } from 'react';
 import "./Offer.css";
 import driver from "./images/driver2.jpg";
 import offerRide from "./images/offerRide.png";
+import Navbar from './Navbar';
+import Footer from './Footer';
 import axios from 'axios';
 
 const Offer = () => {
@@ -172,6 +174,8 @@ const Offer = () => {
   }
 
   return (
+    <>
+    <Navbar/>
     <div className='offer'>
     <div id="driver">
       <img src={driver}/>
@@ -245,6 +249,8 @@ const Offer = () => {
     
     
   </div>
+  <Footer/>
+  </>
   )
 }
 

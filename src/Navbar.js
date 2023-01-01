@@ -16,7 +16,7 @@ const Navbar = () => {
           <img src={Arrow}/>
         </div> */}
         <nav>
-          <Link to="/" className='link'>Home</Link>
+          <Link to="/home" className='link'>Home</Link>
           <Link to="/howtoRent" className='link'>How to Rent</Link>
           {/* <Link to="/FAQS" className='link'>FAQS</Link> */}
           <Link to="/contact" className='link'>Contact Us</Link>

@@ -3,7 +3,8 @@ import "./ShowRides.css";
 import { Ridehandler } from './Request';
 import Ride from './Ride';
 import { Navigate, useNavigate } from 'react-router-dom';
-
+import Navbar from './Navbar';
+import Footer from './Footer';
 const ShowRides = () => {
 
   let initialvalues=
@@ -71,6 +72,8 @@ const ShowRides = () => {
  
 
   return (
+    <>
+    <Navbar/>
     <div className='showRides'>
       <h2> <span>{Ridehandler[0][0].source}</span> <span>---</span> <span>{Ridehandler[0][0].destination}</span></h2>
       <p>Date : {Ridehandler[0][0].date}</p>
@@ -119,6 +122,8 @@ const ShowRides = () => {
         </form>
         </div>
     </div>
+    <Footer/>
+    </>
   )
 }
 
