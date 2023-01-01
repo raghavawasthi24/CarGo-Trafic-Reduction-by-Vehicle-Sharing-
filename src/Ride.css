@@ -1,10 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
 .ride{
     /* display: flex; */
     width:98%;
     height:auto;
-    border: 1px solid black;
+    /* border: 1px solid black; */
+    box-shadow: 1px 1px 5px rgb(75, 74, 74);
     margin:0 1rem 1rem 0;
     font-weight: 400;
+    border-radius: 10px;
+    font-weight: 500;
 }
 .stats{
     background-color: #d9dad7;
@@ -46,4 +50,7 @@
 .btn-request button:hover{
     background-color: black;
     color: white;
+}
+.ride:hover{
+    box-shadow: 1.5px 1.5px 5px black;
 }

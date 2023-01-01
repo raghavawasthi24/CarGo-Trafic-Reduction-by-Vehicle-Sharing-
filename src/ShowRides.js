@@ -79,7 +79,7 @@ const ShowRides = () => {
         {updatedRides.map((val)=>{
           return(
             <div className="rideShow">
-              <Ride id={val.id} source={val.source} destination={val.destination} time={val.time} date={val.date} pricing={val.price} vehicle={val.vehicle}/>
+              <Ride id={val.id} source={val.source} destination={val.destination} time={val.time} date={val.date} pricing={val.price} vehicle={val.vehicle} vacancy={val.Vacancy}/>
             </div>
           )
         })}

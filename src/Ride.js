@@ -23,6 +23,8 @@ const Ride = (props) => {
     }).catch(err=>{
       console.log(err)
     })
+    // console.log(props.id);
+    // console.log(props.vacancy);
   }
   return (
     <div className='ride'>
