@@ -1,8 +1,29 @@
 import React from 'react';
 import "./Ride.css";
 import user from "./images/user.png";
+import { Ridehandler } from './Request';
+import axios from 'axios';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const Ride = (props) => {
+
+  const navigate=useNavigate();
+
+  const booked=()=>{
+    axios.post(`https://web-production-0189.up.railway.app/vehicle/requestrides/${props.id}/${props.vacancy}`,{
+       source:props.source,
+       ride:props.id,
+       destination:props.destination,
+       passenger:props.vacancy,
+       date:props.date,
+       receiver:3,
+    }).then(res=>{
+      console.log(res);
+      navigate("/");
+    }).catch(err=>{
+      console.log(err)
+    })
+  }
   return (
     <div className='ride'>
 
@@ -22,7 +43,7 @@ const Ride = (props) => {
         </div>
         
         <div className='btn-request'>
-          <button>BOOK</button>
+          <button onClick={booked}>BOOK</button>
         </div>
         
         
