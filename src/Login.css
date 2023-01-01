@@ -1,0 +1,67 @@
+.login{
+    background-color: #f0f2f5;
+    width:100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+.loginControls{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color:white;
+    border-radius: 5px;
+}
+.login h1{
+    color:#4054B2;
+    font-size: 3rem;
+    margin:1rem
+}
+.loginPage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:20rem;
+    height: auto;
+    padding: 1rem 1rem;
+    
+}
+.loginPage input{
+    width:95%;
+    padding: 0.7rem 0.5rem;
+    border:0.5px solid grey;
+    outline:none;
+    margin:0.2rem;
+    border-radius: 5px;
+}
+.logInsubmit{
+    color:white;
+    background-color: #4054B2;
+    border:none;
+    outline:none;
+}
+.loginerror{
+    color:red;
+    font-size: 0.8rem;
+    
+}
+.register{
+    width: 50%;
+    padding:0.5rem 1rem;
+    border-radius: 5px;
+    color:white;
+    background-color: #42b72a;
+    border:none;
+    outline:none;
+    margin:1rem 0
+}
+.forgetPassword{
+    text-decoration: none;
+    color:red;
+    margin:1rem;
+    font-weight: 500;
+}
