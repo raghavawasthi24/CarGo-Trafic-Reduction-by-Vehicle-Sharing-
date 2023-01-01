@@ -23,7 +23,7 @@ const Footer = () => {
         <div className='footerContact'>
            <h2>Contact Us</h2>
            <h3>Our Address</h3>
-           <p>Ajay Kumar Garg Enginnering College, Ghaziabad-201009</p>
+           <p>Tower 7, Dream Homes, Wave City, NH-24 Highway, Ghaziabad-201002</p>
            <h3>Phone No.</h3>
            <p>+91 9151270246</p>
            <h3>Email</h3>

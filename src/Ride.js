@@ -4,27 +4,26 @@ import user from "./images/user.png";
 import { Ridehandler } from './Request';
 import axios from 'axios';
 import { Navigate, useNavigate } from 'react-router-dom';
+import { passengerDetails } from './Request';
 
 const Ride = (props) => {
 
   const navigate=useNavigate();
 
   const booked=()=>{
-    axios.post(`https://web-production-0189.up.railway.app/vehicle/requestrides/${props.id}/${props.vacancy}`,{
+    axios.post(`https://web-production-0189.up.railway.app/vehicle/requestrides/${props.id}/${passengerDetails.vacancy}`,{
        source:props.source,
        ride:props.id,
        destination:props.destination,
-       passenger:props.vacancy,
+       passenger:passengerDetails.vacancy,
        date:props.date,
-       receiver:3,
+       reciever:3,
     }).then(res=>{
       console.log(res);
-      navigate("/");
+      // navigate("/");
     }).catch(err=>{
       console.log(err)
     })
-    // console.log(props.id);
-    // console.log(props.vacancy);
   }
   return (
     <div className='ride'>

@@ -8,7 +8,8 @@ import { Navigate, useNavigate } from 'react-router-dom';
 
 export let Ridehandler=[
 
-]
+];
+export let passengerDetails={}
 
 
 const Request = (handleData) => {
@@ -87,23 +88,20 @@ const Request = (handleData) => {
 
   useEffect(()=>{
     if(error==true){
+      passengerDetails=formvalues;
       axios.get(`https://web-production-0189.up.railway.app/vehicle/showrides/${formvalues.pickup}/${formvalues.destination}/${formvalues.date}/${formvalues.vacancy}`)
       .then(res=>{
         Ridehandler=[];
-        console.log(res.data);
-        // res.data.map((val)=>{
-        // return(<ShowRides id={val.id} source={val.source} destination={val.destination} time={val.time} date={val.date} pricing={val.price} vehicle={val.vehicle}/>)
-        // })
-        // 
-        // setRidelist(res.data);
+        // console.log(res.data);
         Ridehandler.push(res.data);
-        console.log(Ridehandler);
-      
+        // console.log(Ridehandler);
         navigate("/showRide")
       }).catch(err=>{
         console.log(err)
       })
-      // console.log(formvalues);
+      
+      console.log(formvalues);
+      console.log(passengerDetails);
     }
   },[error])
 
