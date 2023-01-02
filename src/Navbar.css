@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
 .navbar{
     width:100%;
-    height: auto;
+    height: 4rem;
     background-color: #4267b2;
     display: flex;
     align-items: center;
@@ -73,5 +73,27 @@
     text-decoration: none;
 }
 #offer:hover{
+    color:#4267b2;
+}
+.profile img{
+    width:2rem;
+    margin-right: 1rem;
+}
+.logout{
+    background-color: white;
+    position: absolute;
+    top:4rem;
+    right: 1rem;
+    border:1px solid grey; 
+     border-radius: 5px;
+}
+.logout p{
+    background-color: white;
+    padding:0.1rem 0.6rem;
+    /* border:1px solid black */
+    box-shadow: 0px 1px 1px grey;
+    cursor: pointer;
+}
+.logout p:hover{
     color:#4267b2;
 }
