@@ -135,8 +135,9 @@ const Register = () => {
 
   return (
     <div className='registerUser'>
-      <h1>CarGo.</h1>
+      
       <div className='registerControl'>
+      <h1>CarGo.</h1>
         <form onSubmit={submitHandler} className="registerPage">
             <input type="text" name="full_name" value={formvalues.full_name} placeholder="Full Name" className="inputfield" onChange={userHandler}/>
             <p className='registererror'>{formerror.full_name}</p>

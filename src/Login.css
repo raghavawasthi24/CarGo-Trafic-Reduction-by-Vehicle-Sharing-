@@ -1,5 +1,5 @@
 .login{
-    /* background-color: #f0f2f5; */
+    
     background-image: url("./images/bg.jpg");
     background-size: cover;
     width:100vw;
@@ -20,7 +20,7 @@
 .login h1{
     color:#4054B2;
     font-size: 3rem;
-    margin:1rem
+    margin:1rem 0 0 0;
 }
 .loginPage{
     display: flex;
@@ -49,7 +49,8 @@
 .loginerror{
     color:red;
     font-size: 0.8rem;
-    
+    display: flex;
+    align-self: flex-start;
 }
 .register{
     width: 50%;

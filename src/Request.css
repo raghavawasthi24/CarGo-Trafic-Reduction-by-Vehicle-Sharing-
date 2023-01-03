@@ -98,3 +98,25 @@
 .submits:hover{
     background-color: #4054B2;
 }
+.unsuccessful-msg{
+    width:100vw;
+    height: 100vh;
+    position: fixed;
+    top:0;
+    left:0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    /* background-color:red; */
+    overflow: hidden;
+    /* color:white; */
+}
+.unsuccessful-msg p{
+    display: flex;
+    background-color: rgb(217, 5, 5);
+    color: white;
+    padding:1rem 2rem;
+    font-size: 1rem;
+    font-weight: 500;
+    z-index: 99;
+}

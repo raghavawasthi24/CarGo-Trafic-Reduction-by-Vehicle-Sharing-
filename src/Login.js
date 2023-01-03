@@ -48,7 +48,7 @@ const Login = () => {
 
     useEffect(()=>{
         if(noerror==true){
-            axios.post("https://web-production-0189.up.railway.app/auth/login/",{
+            axios.post("https://web-production-0189.up.railway.app/accounts/login/",{
                 mobile_number:formvalues.mobile_number,
                 password:formvalues.password
             }).then((res)=>{
@@ -67,8 +67,9 @@ const Login = () => {
 
     return(
     <div className='login'>
-        <h1>CarGo.</h1>
+        
         <div class="loginControls">
+        <h1>CarGo.</h1>
             <form onSubmit={submitHandler} className="loginPage">
                 <input type="text" name="mobile_number" value={formvalues.mobile_number} placeholder="Mobile Number" onChange={userHandler}/>
                 <p className='loginerror'>{formerror.mobile_number}</p>

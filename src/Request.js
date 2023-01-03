@@ -27,6 +27,7 @@ const Request = (handleData) => {
   const [error, seterror] = useState(false);
   const navigate=useNavigate();
   const [formerror, setformerror] = useState({});
+  const [isavailabeRide,setisavailableRide]=useState(false);
 
   const userHandler = (e) => {
     const { name, value } = e.target;
@@ -98,12 +99,22 @@ const Request = (handleData) => {
         navigate("/showRide")
       }).catch(err=>{
         console.log(err)
+        setisavailableRide(true);
+        toggle();
+        
       })
       
       console.log(formvalues);
       console.log(passengerDetails);
     }
   },[error])
+
+  const toggle=()=>{
+    setTimeout(()=>{
+      setisavailableRide(false);
+      window.location.reload();
+    },4000)
+  }
 
  
 
@@ -159,6 +170,9 @@ const Request = (handleData) => {
  </form>
           </div>
       </div>
+      <div className={isavailabeRide?"unsuccessful-msg":"hide"}>
+       <p>No Ride is available!</p>
+    </div>
     </div>
   )
 }

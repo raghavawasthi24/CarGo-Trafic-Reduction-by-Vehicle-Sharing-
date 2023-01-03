@@ -55,3 +55,7 @@ body{
 .hide{
     display: none;
 }
+#noride{
+    margin-top:2rem;
+    color:grey
+}

@@ -17,7 +17,7 @@ const Ride = (props) => {
        destination:props.destination,
        passenger:passengerDetails.vacancy,
        date:props.date,
-       reciever:3,
+       reciever:4,
     }).then(res=>{
       console.log(res);
       // navigate("/");

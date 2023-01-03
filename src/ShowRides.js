@@ -78,7 +78,7 @@ const ShowRides = () => {
       <h2> <span>{Ridehandler[0][0].source}</span> <span>---</span> <span>{Ridehandler[0][0].destination}</span></h2>
       <p>Date : {Ridehandler[0][0].date}</p>
       <div className='displayRide'>
-      <div className='ride-display'>
+      <div className={updatedRides.length!=0?'ride-display':'hide'}>
         {updatedRides.map((val)=>{
           return(
             <div className="rideShow">
@@ -86,6 +86,9 @@ const ShowRides = () => {
             </div>
           )
         })}
+        </div>
+        <div className={updatedRides.length==0?'ride-display':'hide'}>
+          <h3 id="noride">Uff! No ride matches to your search.</h3>
         </div>
   
         <form onSubmit={submitHandler} className='rides-filter'>
