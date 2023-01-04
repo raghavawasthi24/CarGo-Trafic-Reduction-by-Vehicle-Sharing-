@@ -3,9 +3,15 @@ import { useState } from 'react';
 import "./Offer.css";
 import driver from "./images/driver2.jpg";
 import offerRide from "./images/offerRide.png";
+import { profile_data } from './Login';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import { Navigate, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+
+export let publisher_details={
+  name:"",
+}
 
 const Offer = () => {
   let initialvalues = {
@@ -18,6 +24,14 @@ const Offer = () => {
     price:"",
     owner:3,
   };
+
+  const navigate=useNavigate();
+   useEffect(()=>{
+    // console.log(Ridehandler)
+    if(!localStorage.getItem("login")){
+         navigate("/");
+    }
+  })
 
   const [formvalues, setformvalues] = useState(initialvalues);
   const [error, seterror] = useState(false);
@@ -153,7 +167,8 @@ const Offer = () => {
         vehicle:formvalues.vehicle,
         Vacancy: formvalues.Vacancy,
         price:formvalues.price,
-        owner:3,
+        owner:localStorage.getItem("profile_id"),
+        full_name:localStorage.getItem("profile_name"),
       })
       .then(res=>{
         console.log(res);
@@ -169,7 +184,8 @@ const Offer = () => {
     setIssuccessful(true)
     setTimeout(()=>{
       setIssuccessful(false);
-      window.location.reload();
+      setformvalues(initialvalues)
+      // window.location.reload();
     },3000)
   }
 

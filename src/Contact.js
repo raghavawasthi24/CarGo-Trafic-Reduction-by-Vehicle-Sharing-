@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import "./Contact.css";
 import Navbar from './Navbar';
 import Footer from './Footer';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const Contact = () => {
 
@@ -9,6 +10,14 @@ const Contact = () => {
     Name:"",
     Email:"",
   }
+
+  const navigate=useNavigate();
+   useEffect(()=>{
+    // console.log(Ridehandler)
+    if(!localStorage.getItem("login")){
+         navigate("/");
+    }
+  })
 
   const userhandler=(e)=>{
     const {name,value} =e.target;

@@ -68,3 +68,24 @@
     margin:1rem;
     font-weight: 500;
 }
+.successfulLogin{
+    width:100vw;
+    height: 100vh;
+    position: fixed;
+    top:0;
+    left:0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    /* background-color:red; */
+    overflow: hidden;
+}
+.successfulLogin p{
+    display: flex;
+    background-color: red;
+    color: white;
+    padding:1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    z-index: 99;
+}

@@ -2,9 +2,11 @@ import React, { useEffect, useRef, useState} from 'react';
 import "./ShowRides.css";
 import { Ridehandler } from './Request';
 import Ride from './Ride';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
+
+
 const ShowRides = () => {
 
   let initialvalues=
@@ -13,10 +15,13 @@ const ShowRides = () => {
       price:""
     }
   
+    const navigate=useNavigate();
+    useEffect(()=>{
+      if(!localStorage.getItem("login")){
+        navigate("/");
+      }
+    })
 
-   useEffect(()=>{
-    console.log(Ridehandler)
-  })
   const rideref=useRef();
   const[updatedRides,setUpdatedRides]=useState(Ridehandler[0]);
   let filteredRideDisplay=[];
@@ -82,7 +87,7 @@ const ShowRides = () => {
         {updatedRides.map((val)=>{
           return(
             <div className="rideShow">
-              <Ride id={val.id} source={val.source} destination={val.destination} time={val.time} date={val.date} pricing={val.price} vehicle={val.vehicle} vacancy={val.Vacancy}/>
+              <Ride id={val.id} source={val.source} destination={val.destination} time={val.time} date={val.date} pricing={val.price} vehicle={val.vehicle} vacancy={val.Vacancy} name={val.full_name}/>
             </div>
           )
         })}

@@ -1,14 +1,22 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import "./Ride.css";
 import user from "./images/user.png";
 import { Ridehandler } from './Request';
 import axios from 'axios';
-import { Navigate, useNavigate } from 'react-router-dom';
+// import { Navigate, useNavigate } from 'react-router-dom';
 import { passengerDetails } from './Request';
+import { profile_data } from './Login';
 
 const Ride = (props) => {
 
-  const navigate=useNavigate();
+  // const navigate=useNavigate();
+  // const navigate=useNavigate();
+  //  useEffect(()=>{
+  //   // console.log(Ridehandler)
+  //   if(!localStorage.getItem("login")){
+  //        navigate("/");
+  //   }
+  // })
 
   const booked=()=>{
     axios.post(`https://web-production-0189.up.railway.app/vehicle/requestrides/${props.id}/${passengerDetails.vacancy}`,{
@@ -17,7 +25,8 @@ const Ride = (props) => {
        destination:props.destination,
        passenger:passengerDetails.vacancy,
        date:props.date,
-       reciever:4,
+      //  reciever:profile_data.id,
+      reciever:localStorage.getItem("profile_id"),
     }).then(res=>{
       console.log(res);
       // navigate("/");
@@ -31,7 +40,7 @@ const Ride = (props) => {
       <div className='stats'>
         <div className='driver-profile'>
           <img src={user}/>
-          <p>Username</p>
+          <p>{props.name}</p>
           <p>Ratings</p>
         </div>
         <p id="price"><span>Rs. </span>{props.pricing}</p>

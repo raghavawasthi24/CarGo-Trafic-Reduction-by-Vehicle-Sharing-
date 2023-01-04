@@ -28,6 +28,7 @@ const Request = (handleData) => {
   const navigate=useNavigate();
   const [formerror, setformerror] = useState({});
   const [isavailabeRide,setisavailableRide]=useState(false);
+  const [submitcontrol,setsubmitcontrol]=useState(false);
 
   const userHandler = (e) => {
     const { name, value } = e.target;
@@ -84,6 +85,12 @@ const Request = (handleData) => {
   const validateform = (e) => {
     e.preventDefault();
     setformerror(errors_form());
+    if(submitcontrol==true){
+      setsubmitcontrol(false)
+    }
+    else{
+      setsubmitcontrol(true)
+    }
     // console.log(formerror);
   }
 
@@ -107,13 +114,13 @@ const Request = (handleData) => {
       console.log(formvalues);
       console.log(passengerDetails);
     }
-  },[error])
+  },[submitcontrol])
 
   const toggle=()=>{
     setTimeout(()=>{
       setisavailableRide(false);
-      window.location.reload();
-    },4000)
+      setformvalues(initialvalues);
+    },3000)
   }
 
  

@@ -3,6 +3,14 @@ import React, { useEffect, useState } from 'react';
 import { Navigate, NavLink, useNavigate } from 'react-router-dom';
 import "./Login.css";
 
+export let profile_data={
+    id:"",
+    name:"",
+    email:"",
+    mobile_no:"",
+    age:"",
+}
+
 const Login = () => {
     const initialvalues={
         mobile_number:"",
@@ -12,6 +20,8 @@ const Login = () => {
     const [formvalues,setformvalues]=useState(initialvalues);
     const [formerror,setformerror]=useState({});
     const [noerror,setnoerror]=useState(false);
+    const[iscredentials,setIscredentials]=useState(false);
+    const [submitcall,setSubmitcall]=useState(false);
 
     const userHandler=(e)=>{
         const {name,value}=e.target;
@@ -44,6 +54,12 @@ const Login = () => {
     const submitHandler=(e)=>{
         e.preventDefault();
         setformerror(error());
+        if(submitcall==false){
+        setSubmitcall(true);
+        }
+        else{
+            setSubmitcall(false);
+        }
     }
 
     useEffect(()=>{
@@ -53,16 +69,30 @@ const Login = () => {
                 password:formvalues.password
             }).then((res)=>{
                 console.log(res)
+                profile_data.id=res.data.profile_data.id;
+                profile_data.name=res.data.profile_data.full_name;
+                profile_data.age=res.data.profile_data.age;
+                profile_data.mobile_no=res.data.profile_data.mobile_number;
+                profile_data.email=res.data.profile_data.email;
+                console.log(profile_data);
+                localStorage.setItem("login","active");
+                localStorage.setItem("profile_id",profile_data.id);
+                localStorage.setItem("profile_name",profile_data.name);
                 navigate("/home");
             }).catch((err)=>{
                 console.log(err);
+                setIscredentials(true);
+                setTimeout(()=>{
+                    setIscredentials(false);
+                },3000)
             })
             // console.log(formvalues);
         }
-    },[noerror])
+    },[submitcall])
 
     const userRegister=()=>{
         navigate("/register");
+        localStorage.setItem("register","active");
     }
 
     return(
@@ -83,6 +113,9 @@ const Login = () => {
             <button  className="register" onClick={userRegister}>Register</button>
             
         </div>
+        <div className={iscredentials?"successfulLogin":"hide"}>
+       <p>Invalid Mobile Number or Password</p>
+    </div>
     </div>
   )
 }

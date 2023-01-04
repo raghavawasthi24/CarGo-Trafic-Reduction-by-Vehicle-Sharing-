@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect}from 'react';
 import "./How.css";
 import s1 from "./images/s1.webp";
 import s2 from "./images/s2.webp";
@@ -6,8 +6,16 @@ import s3 from "./images/s3.webp";
 import s4 from "./images/s5.webp";
 import Navbar from './Navbar';
 import Footer from './Footer';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const How = () => {
+  const navigate=useNavigate();
+   useEffect(()=>{
+    // console.log(Ridehandler)
+    if(!localStorage.getItem("login")){
+         navigate("/");
+    }
+  })
   return (
     <>
     <Navbar/>

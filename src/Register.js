@@ -6,6 +6,12 @@ import { Navigate, useNavigate } from 'react-router-dom';
 // import { Navigate } from 'react-router-dom';
 
 const Register = () => {
+    // const navigate =useNavigate();
+    useEffect(()=>{
+      if(!localStorage.getItem("register")){
+        navigate("/")
+      }
+    })
     const initialvalues={
         full_name:"",
         mobile_number:"",
@@ -131,6 +137,7 @@ const Register = () => {
 
     const userlogin=()=>{
         navigate("/");
+        localStorage.removeItem("register");
     }
 
   return (
