@@ -10,6 +10,7 @@ import Contact from './Contact';
 import Offer from './Offer';
 import ShowRides from './ShowRides';
 import Success from './Success';
+import Request from './Request';
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Login/>}/>
         <Route path="/register" element={<Register/>}/> 
-        <Route path="/home" element={<Home/>}/> 
+        <Route path="/home" element={<Request/>}/> 
         <Route path="/howToRent" element={<How/>}/>
         <Route path="/contact" element={<Contact/>}/>
         <Route path="/offerARide" element={<Offer/>}/>

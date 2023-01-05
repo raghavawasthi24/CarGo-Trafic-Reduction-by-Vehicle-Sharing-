@@ -3,6 +3,7 @@ import "./Register.css";
 import { useState,useEffect } from 'react';
 import axios from 'axios';
 import { Navigate, useNavigate,NavLink } from 'react-router-dom';
+import HashLoader from "react-spinners/HashLoader";
 
 // import { Navigate } from 'react-router-dom';
 
@@ -27,6 +28,7 @@ const Register = () => {
     const [isRegisterConfirm,setisRegisterConfirm]=useState(false);
     const navigate=useNavigate();
     const [submitcall,setSubmitcall]=useState(false);
+    const [loading,setLoading]=useState(false);
 
     const userHandler=(e)=>{
         const {name,value}=e.target;
@@ -126,6 +128,7 @@ const Register = () => {
 
     useEffect(()=>{
         if(noerror==true){
+            setLoading(true);
             axios.post("https://web-production-0189.up.railway.app/accounts/register/",{
                 full_name:formvalues.full_name,
                 email:formvalues.email,
@@ -137,8 +140,10 @@ const Register = () => {
             }).then((res)=>{
                 console.log(res)
                 setisRegisterConfirm(true);
+                setLoading(false);
             }).catch((err)=>{
                 console.log(err);
+                setLoading(false);
             })
             console.log(formvalues);
         }
@@ -150,7 +155,15 @@ const Register = () => {
     }
 
   return (
-    <div className='registerUser'>
+    <>
+    <div className={loading?"loading":"hide"}>
+      <HashLoader
+          color={'#4054B2'}
+          loading={loading}
+          size={50}
+        />
+    </div>
+    <div className={loading?'hide':'registerUser'}>
       
       <div className='registerControl'>
       <h1>CarGo.</h1>
@@ -198,6 +211,7 @@ const Register = () => {
         </div>
       </div>
     </div>
+    </>
   )
 }
 

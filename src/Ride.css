@@ -76,3 +76,10 @@
     font-weight: 500;
     z-index: 99;
 }
+.loading_book{
+    margin-top:1rem;
+    /* background-color: black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

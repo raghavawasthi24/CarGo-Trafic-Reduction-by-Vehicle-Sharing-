@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Navigate, NavLink, useNavigate } from 'react-router-dom';
 import "./Login.css";
+import HashLoader from "react-spinners/HashLoader";
 
 export let profile_data={
     id:"",
@@ -22,6 +23,7 @@ const Login = () => {
     const [noerror,setnoerror]=useState(false);
     const[iscredentials,setIscredentials]=useState(false);
     const [submitcall,setSubmitcall]=useState(false);
+    const [loading,setLoading]=useState(false);
 
     const userHandler=(e)=>{
         const {name,value}=e.target;
@@ -64,6 +66,7 @@ const Login = () => {
 
     useEffect(()=>{
         if(noerror==true){
+            setLoading(true);
             axios.post("https://web-production-0189.up.railway.app/accounts/login/",{
                 mobile_number:formvalues.mobile_number,
                 password:formvalues.password
@@ -78,9 +81,11 @@ const Login = () => {
                 localStorage.setItem("login","active");
                 localStorage.setItem("profile_id",profile_data.id);
                 localStorage.setItem("profile_name",profile_data.name);
+                setLoading(false);
                 navigate("/home");
             }).catch((err)=>{
                 console.log(err);
+                setLoading(false);
                 setIscredentials(true);
                 setTimeout(()=>{
                     setIscredentials(false);
@@ -96,7 +101,16 @@ const Login = () => {
     }
 
     return(
-    <div className='login'>
+        <>
+        <div className={loading?"loading":"hide"}>
+      <HashLoader
+          color={'#4054B2'}
+          loading={loading}
+          size={50}
+        />
+    </div>
+
+    <div className={loading?'hide':'login'}>
         
         <div class="loginControls">
         <h1>CarGo.</h1>
@@ -117,6 +131,7 @@ const Login = () => {
        <p>Invalid Mobile Number or Password</p>
     </div>
     </div>
+    </>
   )
 }
 

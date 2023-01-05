@@ -7,6 +7,7 @@ import { profile_data } from './Login';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import { Navigate, useNavigate } from 'react-router-dom';
+import HashLoader from "react-spinners/HashLoader";
 import axios from 'axios';
 
 export let publisher_details={
@@ -38,6 +39,8 @@ const Offer = () => {
   // const navigate=useNavigate();
   const [formerror, setformerror] = useState({});
   const [issuccessful,setIssuccessful]=useState(false);
+  const [loading,setLoading]=useState(false);
+  const [submitcontrol,setsubmitcontrol]=useState(false);
 
   const userHandler = (e) => {
     const { name, value } = e.target;
@@ -134,6 +137,12 @@ const Offer = () => {
   const validateform = (e) => {
     e.preventDefault();
     setformerror(errors_form());
+    if(submitcontrol==true){
+      setsubmitcontrol(false)
+    }
+    else{
+      setsubmitcontrol(true)
+    }
     // if(error==true){
     //   axios.post(`https://web-production-0189.up.railway.app/vehicle/publish/`,{
     //     source: formvalues.source,
@@ -159,6 +168,7 @@ const Offer = () => {
 
   useEffect(()=>{
       if(error==true){
+        setLoading(true);
         axios.post(`https://web-production-0189.up.railway.app/vehicle/publish/`,{
         source: formvalues.source,
         destination: formvalues.destination,
@@ -172,13 +182,15 @@ const Offer = () => {
       })
       .then(res=>{
         console.log(res);
+        setLoading(false);
         successful();
       }).catch(err=>{
         console.log(err)
+        setLoading(false);
       })
       console.log(formvalues);
       }
-  },[error])
+  },[submitcontrol])
 
   const successful=()=>{
     setIssuccessful(true)
@@ -191,81 +203,78 @@ const Offer = () => {
 
   return (
     <>
-    <Navbar/>
-    <div className='offer'>
-    <div id="driver">
-      <img src={driver}/>
-       <p>Start. Share your Vehicle with others.</p>
+    <div className={loading?"loading":"hide"}>
+      <HashLoader
+          color={'#4054B2'}
+          loading={loading}
+          size={50}
+        />
     </div>
-    <div className='offerSec'>
-      <div className='offerPart'>
-        <h2>Publish Your Ride</h2>
-        <img src={offerRide} className="offerRideimg"/>
+    <div className={loading?"hide":"offerPage"}>
+      <Navbar/>
+      <div className="offer">
+      <div id="driver">
+        <img src={driver}/>
+         <p>Start. Share your Vehicle with others.</p>
       </div>
-       <form onSubmit={validateform} className="formControl">
-
-        <div className="offersigninputs">
-
-          <div className="offerpickup offerregisterfield">
-          <div className='offerinputfield'>
-             {/* <img src={redCircle}/> */}
-             <input type="text" placeholder="Select Source" name="source" value={formvalues.source} onChange={userHandler} />
-          </div>
-          <p className='offerthrowerror'>{formerror.source}</p>
-          </div>
-
-        <div className="offerdestination offerregisterfield">
-          <div className='offerinputfield'>
-            {/* <img src={blueCircle}/> */}
-            <input type="text" name="destination" placeholder="Select Destination" value={formvalues.destination} onChange={userHandler} />
+      <div className='offerSec'>
+        <div className='offerPart'>
+          <h2>Publish Your Ride</h2>
+          <img src={offerRide} className="offerRideimg"/>
+        </div>
+         <form onSubmit={validateform} className="formControl">
+          <div className="offersigninputs">
+            <div className="offerpickup offerregisterfield">
+            <div className='offerinputfield'>
+               {/* <img src={redCircle}/> */}
+               <input type="text" placeholder="Select Source" name="source" value={formvalues.source} onChange={userHandler} />
+            </div>
+            <p className='offerthrowerror'>{formerror.source}</p>
+            </div>
+          <div className="offerdestination offerregisterfield">
+            <div className='offerinputfield'>
+              {/* <img src={blueCircle}/> */}
+              <input type="text" name="destination" placeholder="Select Destination" value={formvalues.destination} onChange={userHandler} />
+           </div>
+           <p className='offerthrowerror'>{formerror.destination}</p>
          </div>
-         <p className='offerthrowerror'>{formerror.destination}</p>
-       </div>
-
-        <div className="offerdate offerregisterfield">
-          <input type="date" name="date" placeholder="Select Date" value={formvalues.date} onChange={userHandler} />
-          <p className='offerthrowerror'>{formerror.date}</p>
-       </div>
-
-       <div className="offertime offerregisterfield">
-         <input type="time" name="time" placeholder="Time" onChange={userHandler} value={formvalues.time} />
-         <p className='offerthrowerror'>{formerror.time}</p>
-       </div>
-
-       <div className="offervehicle offerregisterfield">
-         <input type="text" name="vehicle" placeholder="Vehicle" onChange={userHandler} value={formvalues.vehicle} />
-         <p className='offerthrowerror'>{formerror.vehicle}</p>
-       </div>
+          <div className="offerdate offerregisterfield">
+            <input type="date" name="date" placeholder="Select Date" value={formvalues.date} onChange={userHandler} />
+            <p className='offerthrowerror'>{formerror.date}</p>
+         </div>
+         <div className="offertime offerregisterfield">
+           <input type="time" name="time" placeholder="Time" onChange={userHandler} value={formvalues.time} />
+           <p className='offerthrowerror'>{formerror.time}</p>
+         </div>
+         <div className="offervehicle offerregisterfield">
+           <input type="text" name="vehicle" placeholder="Vehicle" onChange={userHandler} value={formvalues.vehicle} />
+           <p className='offerthrowerror'>{formerror.vehicle}</p>
+         </div>
       
-
-       <div className="offervacancy offerregisterfield">
-         <input type="text" name="Vacancy" placeholder="Vacancy" onChange={userHandler} value={formvalues.Vacancy} />
-         <p className='offerthrowerror'>{formerror.Vacancy}</p>
-       </div>
-
-       <div className="offerprice offerregisterfield">
-         <input type="text" name="price" placeholder="Price" onChange={userHandler} value={formvalues.price} />
-         <p className='offerthrowerror'>{formerror.price}</p>
-       </div>
-
-       </div>
-
-
-      <div>
-        <input type="submit" className='offersubmits' value="Publish"/>
+         <div className="offervacancy offerregisterfield">
+           <input type="text" name="Vacancy" placeholder="Vacancy" onChange={userHandler} value={formvalues.Vacancy} />
+           <p className='offerthrowerror'>{formerror.Vacancy}</p>
+         </div>
+         <div className="offerprice offerregisterfield">
+           <input type="text" name="price" placeholder="Price" onChange={userHandler} value={formvalues.price} />
+           <p className='offerthrowerror'>{formerror.price}</p>
+         </div>
+         </div>
+        <div>
+          <input type="submit" className='offersubmits' value="Publish"/>
+        </div>
+      
+         </form>
       </div>
-
-   </form>
+      <div className={issuccessful?"successful-msg":"hide"}>
+         <p>Your Ride is successfully published</p>
+      </div>
+      
+      
+      
+        </div>
+        <Footer/>
     </div>
-
-    <div className={issuccessful?"successful-msg":"hide"}>
-       <p>Your Ride is successfully published</p>
-    </div>
-    
-    
-    
-  </div>
-  <Footer/>
   </>
   )
 }

@@ -5,6 +5,11 @@ import blueCircle from"./images/blueCircle.png";
 import axios from 'axios';
 import ShowRides from './ShowRides';
 import { Navigate, useNavigate } from 'react-router-dom';
+import About from "./About";
+import Team from './Team';
+import Navbar from './Navbar';
+import Footer from './Footer';
+import HashLoader from "react-spinners/HashLoader";
 
 export let Ridehandler=[
 
@@ -29,6 +34,7 @@ const Request = (handleData) => {
   const [formerror, setformerror] = useState({});
   const [isavailabeRide,setisavailableRide]=useState(false);
   const [submitcontrol,setsubmitcontrol]=useState(false);
+  const [loading,setLoading]=useState(false);
 
   const userHandler = (e) => {
     const { name, value } = e.target;
@@ -96,6 +102,7 @@ const Request = (handleData) => {
 
   useEffect(()=>{
     if(error==true){
+      setLoading(true);
       passengerDetails=formvalues;
       axios.get(`https://web-production-0189.up.railway.app/vehicle/showrides/${formvalues.pickup}/${formvalues.destination}/${formvalues.date}/${formvalues.vacancy}`)
       .then(res=>{
@@ -103,10 +110,12 @@ const Request = (handleData) => {
         // console.log(res.data);
         Ridehandler.push(res.data);
         // console.log(Ridehandler);
+        setLoading(false);
         navigate("/showRide")
       }).catch(err=>{
         console.log(err)
         setisavailableRide(true);
+        setLoading(false);
         toggle();
         
       })
@@ -127,60 +136,70 @@ const Request = (handleData) => {
 
 
   return (
-    <div className='request'>
-      <div className='requestTextArea'>
-         <h2>
-          Earn. Connect. Contribute to the Society
-         </h2>
-         <p>We let YOU pick the car that will ensure the best trip ever.</p>
-         <p>Give us a shout and we will ready to get it ready for you.</p>
-      </div>
-      <div className='requestSec'>
-          <div className='requestCar'>
-          <h2>Book Your Ride</h2>
- 
-     <form onSubmit={validateform}>
-
-       <div className="signinputs">
-         <div className="pickup registerfield">
-          <div className='inputfields'>
-            <img src={redCircle}/>
-                     <input type="text" placeholder="Select Pickup" name="pickup" value={formvalues.pickup} onChange={userHandler} />
-          </div>
-         <p className='throwerror'>{formerror.pickup}</p>
-       </div>
-
-     <div className="destination registerfield">
-        <div className='inputfields'>
-          <img src={blueCircle}/>
-          <input type="text" name="destination" placeholder="Select Destination" value={formvalues.destination} onChange={userHandler} />
+    <>
+    <div className={loading?"loading":"hide"}>
+      <HashLoader
+          color={'#4054B2'}
+          loading={loading}
+          size={50}
+        />
+    </div>
+    <div className={loading?"hide":'offerPage'}>
+      <Navbar/>
+      <div className='request'>
+        <div className='requestTextArea'>
+           <h2>
+            Earn. Connect. Contribute to the Society
+           </h2>
+           <p>We let YOU pick the car that will ensure the best trip ever.</p>
+           <p>Give us a shout and we will ready to get it ready for you.</p>
         </div>
-        <p className='throwerror'>{formerror.destination}</p>
-     </div>
-
-     <div className="date registerfield">
-       <input type="date" name="date" placeholder="Select Date" value={formvalues.date} onChange={userHandler} />
-       <p className='throwerror'>{formerror.date}</p>
-     </div>
-
-     <div className="vacancy registerfield">
-       <input type="number" name="vacancy" placeholder="Passenger" onChange={userHandler} value={formvalues.vacancy} />
-       <p className='throwerror'>{formerror.vacancy}</p>
-     </div>
-   </div>
-
-
-   <div>
-     <input type="submit" className='submits' value="Search Rides"/>
-   </div>
-
- </form>
+        <div className='requestSec'>
+            <div className='requestCar'>
+            <h2>Book Your Ride</h2>
+       <form onSubmit={validateform}>
+         <div className="signinputs">
+           <div className="pickup registerfield">
+            <div className='inputfields'>
+              <img src={redCircle}/>
+                       <input type="text" placeholder="Select Pickup" name="pickup" value={formvalues.pickup} onChange={userHandler} />
+            </div>
+           <p className='throwerror'>{formerror.pickup}</p>
+         </div>
+       <div className="destination registerfield">
+          <div className='inputfields'>
+            <img src={blueCircle}/>
+            <input type="text" name="destination" placeholder="Select Destination" value={formvalues.destination} onChange={userHandler} />
           </div>
+          <p className='throwerror'>{formerror.destination}</p>
+       </div>
+       <div className="date registerfield">
+         <input type="date" name="date" placeholder="Select Date" value={formvalues.date} onChange={userHandler} />
+         <p className='throwerror'>{formerror.date}</p>
+       </div>
+       <div className="vacancy registerfield">
+         <input type="number" name="vacancy" placeholder="Passenger" onChange={userHandler} value={formvalues.vacancy} />
+         <p className='throwerror'>{formerror.vacancy}</p>
+       </div>
+         </div>
+      
+      
+         <div>
+       <input type="submit" className='submits' value="Search Rides"/>
+         </div>
+      
+       </form>
+            </div>
+        </div>
+        <div className={isavailabeRide?"unsuccessful-msg":"hide"}>
+         <p>No Ride is available!</p>
       </div>
-      <div className={isavailabeRide?"unsuccessful-msg":"hide"}>
-       <p>No Ride is available!</p>
+      </div>
+      <About/>
+      <Team/>
+      <Footer/>
     </div>
-    </div>
+    </>
   )
 }
 
