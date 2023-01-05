@@ -2,11 +2,11 @@ import React from 'react';
 import "./Register.css";
 import { useState,useEffect } from 'react';
 import axios from 'axios';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate,NavLink } from 'react-router-dom';
+
 // import { Navigate } from 'react-router-dom';
 
 const Register = () => {
-    // const navigate =useNavigate();
     useEffect(()=>{
       if(!localStorage.getItem("register")){
         navigate("/")
@@ -24,7 +24,9 @@ const Register = () => {
     const [formvalues,setformvalues]=useState(initialvalues);
     const [formerror,setformerror]=useState({});
     const [noerror,setnoerror]=useState(false);
+    const [isRegisterConfirm,setisRegisterConfirm]=useState(false);
     const navigate=useNavigate();
+    const [submitcall,setSubmitcall]=useState(false);
 
     const userHandler=(e)=>{
         const {name,value}=e.target;
@@ -113,12 +115,18 @@ const Register = () => {
     const submitHandler=(e)=>{
         e.preventDefault();
         setformerror(error());
+        if(submitcall==false){
+            setSubmitcall(true);
+            }
+            else{
+                setSubmitcall(false);
+            }
         
     }
 
     useEffect(()=>{
         if(noerror==true){
-            axios.post("https://web-production-0189.up.railway.app/auth/register/",{
+            axios.post("https://web-production-0189.up.railway.app/accounts/register/",{
                 full_name:formvalues.full_name,
                 email:formvalues.email,
                 mobile_number:formvalues.mobile_number,
@@ -128,12 +136,13 @@ const Register = () => {
                 password2:formvalues.password2,
             }).then((res)=>{
                 console.log(res)
+                setisRegisterConfirm(true);
             }).catch((err)=>{
                 console.log(err);
             })
             console.log(formvalues);
         }
-    },[noerror])
+    },[submitcall])
 
     const userlogin=()=>{
         navigate("/");
@@ -180,6 +189,13 @@ const Register = () => {
         <h4>Already Have An Account?</h4>
             
          <button  className="loginback" onClick={userlogin}>LogIn</button>
+      </div>
+      <div className={isRegisterConfirm?"confirmRegister":"hide"}>
+        <div class="register-confirm">
+            <p>Verification Email Link is sent to your Registered Email Address.</p>
+            <p>Click on the link and verify your account.</p>
+            <button onClick={userlogin}>Back To LogIn</button>
+        </div>
       </div>
     </div>
   )

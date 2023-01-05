@@ -1,15 +1,16 @@
-import React,{useEffect} from 'react';
+import React,{useState,useEffect} from 'react';
 import "./Ride.css";
 import user from "./images/user.png";
 import { Ridehandler } from './Request';
 import axios from 'axios';
-// import { Navigate, useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { passengerDetails } from './Request';
 import { profile_data } from './Login';
 
 const Ride = (props) => {
 
-  // const navigate=useNavigate();
+
+  const navigate=useNavigate();
   // const navigate=useNavigate();
   //  useEffect(()=>{
   //   // console.log(Ridehandler)
@@ -29,7 +30,8 @@ const Ride = (props) => {
       reciever:localStorage.getItem("profile_id"),
     }).then(res=>{
       console.log(res);
-      // navigate("/");
+
+      navigate("/bookedRide");
     }).catch(err=>{
       console.log(err)
     })
@@ -55,6 +57,7 @@ const Ride = (props) => {
         <div className='btn-request'>
           <button onClick={booked}>BOOK</button>
         </div>
+
         
         
     </div>

@@ -9,6 +9,7 @@ import Home from './Home';
 import Contact from './Contact';
 import Offer from './Offer';
 import ShowRides from './ShowRides';
+import Success from './Success';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/contact" element={<Contact/>}/>
         <Route path="/offerARide" element={<Offer/>}/>
         <Route path="/showRide" element={<ShowRides/>}/>
+        <Route path="/bookedRide" element={<Success/>}/>
       </Routes>
       
       

@@ -22,7 +22,7 @@ const Offer = () => {
     vehicle:"",
     Vacancy: "",
     price:"",
-    owner:3,
+    owner:"",
   };
 
   const navigate=useNavigate();

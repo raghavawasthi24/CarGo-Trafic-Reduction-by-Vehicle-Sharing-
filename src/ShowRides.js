@@ -26,7 +26,7 @@ const ShowRides = () => {
   const[updatedRides,setUpdatedRides]=useState(Ridehandler[0]);
   let filteredRideDisplay=[];
   const[formvalues,setformvalues]=useState(initialvalues);
-
+  // const [successfull_book,setsuccessfull_book]=useState(false);
 
      const filterRide=(e)=>{
         const{name,value}=e.target;
@@ -131,6 +131,7 @@ const ShowRides = () => {
         </div>
     </div>
     <Footer/>
+    
     </>
   )
 }

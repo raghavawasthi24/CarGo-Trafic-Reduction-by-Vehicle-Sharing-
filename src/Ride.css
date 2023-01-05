@@ -54,3 +54,25 @@
 .ride:hover{
     box-shadow: 1.5px 1.5px 5px black;
 }
+
+.successfullbooked{
+    width:100vw;
+    height: 100vh;
+    position: fixed;
+    top:0;
+    left:0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    /* background-color:red; */
+    overflow: hidden;
+}
+.successfullbooked p{
+    display: flex;
+    background-color: red;
+    color: white;
+    padding:1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    z-index: 99;
+}

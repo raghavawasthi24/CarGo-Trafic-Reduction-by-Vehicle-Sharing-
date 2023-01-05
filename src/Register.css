@@ -83,3 +83,40 @@
     outline:none;
     margin:1rem 0
 }
+.confirmRegister{
+    width:100vw;
+    height: 100vh;
+    position: fixed;
+    top:0;
+    left:0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:rgba(0, 0, 0, 0.55);
+    overflow: hidden;
+}
+.register-confirm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 2rem 4rem;
+}
+.confirmRegister p{
+    display: flex;
+    color: black;
+    /* padding:1rem; */
+    font-size: 1rem;
+    font-weight: 450;
+    z-index: 99;
+}
+.confirmRegister button{
+    margin:0.7rem 0.5rem;
+    background-color: #4054B2;
+    border:none;
+    outline: none;
+    color:white;
+    padding:0.5rem;
+    border-radius: 5px;
+}

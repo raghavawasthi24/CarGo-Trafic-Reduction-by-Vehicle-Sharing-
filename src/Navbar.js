@@ -1,6 +1,6 @@
 import React ,{useRef, useState} from 'react';
 import "./Navbar.css";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import profile from "./images/profile.png";
 import logo from "./images/logo.png";
 import Arrow from "./images/arrow.png";
@@ -8,6 +8,7 @@ import Arrow from "./images/arrow.png";
 const Navbar = () => {
 
   const [openarrow,setopenarrow]=useState(false);
+  const navigate=useNavigate();
 
   const arrow=()=>{
     if(openarrow==false){
@@ -16,6 +17,13 @@ const Navbar = () => {
   else{
     setopenarrow(false)
   }
+}
+
+const logout=()=>{
+  localStorage.removeItem("login");
+  localStorage.removeItem("profile_id");
+  localStorage.removeItem("profile_name");
+  navigate("/");
 }
 
 
@@ -38,7 +46,7 @@ const Navbar = () => {
           </div>
           <div className={openarrow?"logout":"hide"}>
             <p>View Profile</p>
-            <p>LogOut</p>
+            <p onClick={logout}>LogOut</p>
           </div>
         </nav> 
     </div>

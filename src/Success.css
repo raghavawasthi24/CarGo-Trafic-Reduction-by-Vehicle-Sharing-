@@ -1,0 +1,23 @@
+.success{
+    width:100vw;
+    height: 100vh;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.done{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#success-img{
+    width:5rem;
+    height:5rem;
+    margin: 1rem;
+}
+.done p{
+    font-weight: 400;
+}
