@@ -26,6 +26,10 @@ const logout=()=>{
   navigate("/");
 }
 
+const viewprofile=()=>{
+  navigate('/profile');
+}
+
 
   return (
     <div className="navbar">
@@ -45,7 +49,7 @@ const logout=()=>{
             <img src={profile}/>
           </div>
           <div className={openarrow?"logout":"hide"}>
-            <p>View Profile</p>
+            <p onClick={viewprofile}>View Profile</p>
             <p onClick={logout}>LogOut</p>
           </div>
         </nav> 

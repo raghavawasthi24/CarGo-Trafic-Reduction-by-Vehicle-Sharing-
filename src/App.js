@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
-import Landing from './Landing';
 import Login from "./Login";
 import Register from "./Register";
 import How from './How';
@@ -11,6 +10,7 @@ import Offer from './Offer';
 import ShowRides from './ShowRides';
 import Success from './Success';
 import Request from './Request';
+import ProfilePage from './ProfilePage';
 
 function App() {
   return (
@@ -25,6 +25,7 @@ function App() {
         <Route path="/offerARide" element={<Offer/>}/>
         <Route path="/showRide" element={<ShowRides/>}/>
         <Route path="/bookedRide" element={<Success/>}/>
+        <Route path='/profile' element={<ProfilePage/>}/>
       </Routes>
       
       
