@@ -13,7 +13,6 @@ const ProfilePage = () => {
     if(requested==true){
     axios.get('https://web-production-0189.up.railway.app/vehicle/allrides/4/')
     .then((res)=>{
-      // console.log(res.data.rides_requested_by_me)
       setridesList(res.data.rides_requested_by_me);
       console.log(ridesList);
     }).catch((err)=>{

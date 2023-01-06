@@ -29,6 +29,8 @@ const Ride = (props) => {
        destination:props.destination,
        passenger:passengerDetails.vacancy,
        date:props.date,
+       time:props.time,
+       price:props.pricing,
       //  reciever:profile_data.id,
       reciever:localStorage.getItem("profile_id"),
     }).then(res=>{
