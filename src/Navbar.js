@@ -35,14 +35,9 @@ const viewprofile=()=>{
     <div className="navbar">
         {/* <img src={logo}/> */}
         <h1 className='logo'>CarGo.</h1>
-        {/* <div className='search_field'>
-          <input type="search" id='search_bar' placeholder='Tell us your location'/>
-          <img src={Arrow}/>
-        </div> */}
         <nav>
           <Link to="/home" className='link'>Home</Link>
           <Link to="/howtoRent" className='link'>How to Rent</Link>
-          {/* <Link to="/FAQS" className='link'>FAQS</Link> */}
           <Link to="/contact" className='link'>Contact Us</Link>
           <Link to="/offerARide" id="offer">Offer A Ride</Link>
           <div className="profile" onClick={arrow}>

@@ -4,29 +4,25 @@ import "./MyRide.css";
 
 const MyRide = (props) => {
   return (
-    <div className='ride'>
-
-      <div className='stats'>
-        <div className='driver-profile'>
-          <img src={user}/>
-          <p>{props.name}</p>
-          <p>Ratings</p>
+    <div className='ridesInfo'>
+      <div className='dateAndtime'>
+        <p><span>{props.date}</span> | <span>{props.time}</span></p>
+        <p>Rs. {props.pricing}</p>
+      </div>
+      <div className='user-profile-Page'>
+        <div id="sourceInfo">
+          <p>{props.source}</p>
         </div>
-        <p id="price"><span>Rs. </span>{props.pricing}</p>
+        <div id="vehicleInfo">
+          <p>--{props.vehicle}--</p>
         </div>
-
-        <div className='overview-ride'>
-          <p id="source"> <span>{props.time}</span> <span>|</span> <span>{props.source}</span> </p>
-          <p id="vehicle"><span>-</span><span>{props.vehicle}</span><span>-</span></p>
-          <p id="destination">{props.destination}</p>
+        <div id="destinationInfo">
+          <p>{props.destination}</p>
         </div>
-        
-        {/* <div className='btn-request'>
-          <button onClick={booked}>BOOK</button>
-        </div> */}
-
-        
-        
+      </div>
+      <div className='completedInfo'>
+        <p>Completed</p>
+      </div>
     </div>
   )
 }

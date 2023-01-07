@@ -1,0 +1,42 @@
+.ridesInfo{
+    width:95%;
+    margin:1rem auto;
+    background-color: white;
+    /* padding: 0.5rem; */
+    box-shadow: 1px 1px 5px grey;
+    border-radius: 5px;
+}
+.dateAndtime{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.2rem 1rem;
+    border-bottom: 1px solid grey;
+}
+.user-profile-Page{
+    display: flex;
+    justify-content: space-between;
+}
+.user-profile-Page div{
+    width:33%;
+    background-color:white;
+}
+#sourceInfo{
+    display: flex;
+    padding:0.2rem 1rem;
+}
+#vehicleInfo{
+    display: flex;
+    justify-content: center;
+    padding:0.2rem 1rem;
+}
+#destinationInfo{
+    display: flex;
+    justify-content: flex-end;
+    padding:0.2rem 1rem;
+}
+.completedInfo{
+    padding: 0rem 1rem;
+    background-color: #f8f8f8;
+    color: green;
+    font-weight: 500;
+}

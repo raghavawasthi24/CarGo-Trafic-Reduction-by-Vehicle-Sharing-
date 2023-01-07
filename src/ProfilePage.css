@@ -1,5 +1,5 @@
 .profile-page{
-    background-color: red;
+    background-color: white;
     width: 100vw;
     height: auto;
     display: flex;
@@ -7,12 +7,25 @@
     justify-content: center;
     align-items: center;
 }
+.profile-page p{
+    display: flex;
+    /* align-self: flex-start; */
+}
+.ridesPage{
+    background-color: #f0f2f5;
+}
 .show-all-rides{
-    background-color: yellow;
     display: flex;
 
 }
-.show-all-rides div{
-    background-color: green;
+.nothing{
+    /* background-color: green; */
     padding:1rem 8rem;
+    cursor:pointer;
+}
+.requestedRide{
+    background-color: #4054B2;
+    color:white;
+    padding:1rem 8rem;
+    cursor:pointer;
 }
