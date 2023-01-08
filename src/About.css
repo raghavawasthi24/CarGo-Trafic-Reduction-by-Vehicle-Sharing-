@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
 .about{
-    width:90%;
+    width:100%;
     height:auto;
     margin:auto;
     background-color: white;
@@ -18,7 +18,8 @@
     
 }
 .features{
-    width: 100%;
+    width: 90%;
+    margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -31,11 +32,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 10px;
+    padding: 1rem;
 }
 .features_num{
-    width:50px;
-    height: 50px;
+    width:3rem;
+    height: 3rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,7 +44,7 @@
     /* background-color: #4267b2; */
     background-color: #d0d1d1;
     color: black;
-    padding: 20px;
+    padding: 1rem;
     border-radius: 50%;
 }
 .features_num p{
@@ -54,8 +55,38 @@
     font-size: 20px;
     font-weight: bold;
     color: #666769;
+    text-align: center;
     /* margin-left:10px */
 }
-@media screen and(max-width:800px) {
-    
+@media screen and (max-width:800px) {
+    .about h2{
+        font-size:3rem;
+    }
+}
+@media screen and (max-width:611px){
+     .features{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+     }
+     .features_div{
+        width: 100%;
+        padding:0.5rem;
+        flex-direction: row;
+        justify-content: flex-start;
+        background-color: red;
+     }
+     .features_txt{
+        padding:0.5rem;
+        /* margin-left: 1rem; */
+     }
+     .features_num{
+        width:2rem;
+        height: 2rem;
+        /* margin:1rem; */
+     }
+     .features_num p{
+        font-size: 1.3rem;
+     }
 }

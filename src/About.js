@@ -11,25 +11,25 @@ const About = () => {
             <div className='features_num'>
               <p>1</p>
             </div>
-            <center><p className='features_txt'>Easy 4-step online booking: search, select, book, enjoy!</p></center>
+            <p className='features_txt'>Easy 4-step online booking: search, select, book, enjoy!</p>
           </div>
           <div className='features_div'>
           <div className='features_num'>
               <p>2</p>
             </div>
-            <center><p className='features_txt'>Award-winning car rental company</p></center>
+             <p className='features_txt'>Award-winning car rental company</p>   
           </div>
           <div className='features_div'>
           <div className='features_num'>
               <p>3</p>
             </div>
-            <center><p className='features_txt'>New, comfortable rental car fleet</p></center>
+             <p className='features_txt'>New, comfortable rental car fleet</p>   
           </div>
           <div className='features_div'>
           <div className='features_num'>
               <p>4</p>
             </div>
-            <center><p className='features_txt'>Daily, weekly, monthly, short and long term car rental</p></center>
+             <p className='features_txt'>Daily, weekly, monthly, short and long term car rental</p>   
           </div>
         </div>
         {/* <div className='features'>
