@@ -8,6 +8,8 @@
     justify-content: space-between;
     font-family: 'Roboto', sans-serif;
     padding:0.5rem 0;
+    position: fixed;
+    z-index: 99;
 }
 .navbar nav{
     height: 100%;
@@ -97,4 +99,83 @@
 }
 .logout p:hover{
     color:#4267b2;
+}
+.bar{
+    width:1.5rem;
+    height: 1.5rem;
+    margin-right:0.5rem;
+    display: none;
+}
+.cross{
+    width:1.5rem;
+    height: 1.5rem;
+    margin-right:0.5rem;
+    display: none;
+}
+.openMenudiv{
+    display: none;
+}
+@media screen and (max-width:858px){
+    .link{
+        display: none;
+    }
+    .bar{
+        display: block;
+    }
+    .cross{
+        display: block;
+    }
+    .profile{
+        display: none;
+    }
+    .openMenudiv{
+        display: block;
+        width:20rem;
+        height: 100vh;
+        background-color: rgba(37, 36, 36, 0.929);
+        position: fixed;
+        top:5rem;
+        right:0;
+        /* margin-left:auto; */
+        z-index: 99;
+        display: flex;
+        flex-direction: column;
+        align-self: flex-end;
+        padding-top: 1rem;
+    }
+    .openlink{
+         color: white;
+         text-decoration: none;
+         margin:0.5rem 1rem;
+    }
+    .openMenudiv p{
+        color: white;
+         margin:0.5rem 1rem;
+    }
+}
+@media screen and (max-width:556px) {
+    .logo{
+        font-size: 2.5rem;
+        margin-left: 2rem;
+    }
+    .openMenudiv{
+        width:15rem;
+    }
+}
+@media screen and (max-width:407px) {
+    .logo{
+        font-size: 2rem;
+        margin-left: 1.5rem;
+    }
+    .navbar{
+        height: 3rem;
+    }
+    #offer{
+        padding:7px 10px;
+        font-size: 0.8rem;
+    }
+    .openMenudiv{
+        position: fixed;
+        top:4rem;
+    }
 }
