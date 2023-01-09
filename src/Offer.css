@@ -45,6 +45,7 @@
     margin:0 auto;
 }
 .offerPart{
+    width:50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -142,6 +143,9 @@
         font-size: 2.5rem;
         width: 40%;
     }
+    .offerRideimg{
+        width:100%;
+    }
 }
 @media  screen and (max-width:928px) {
     #driver p{
@@ -153,17 +157,55 @@
     #driver p{
         font-size: 1.5rem;
     }
+    .offerSec{
+        flex-direction: column;
+    }
+    .offerRideimg{
+        display: none;
+    }
+    .formControl{
+        margin: 1rem 0;
+    }
+    .offerPart{
+        width: 100%;
+    }
 }
 @media screen and (max-width:610px) {
     #driver p{
         font-size: 1.2rem;
+        position: absolute;
+        bottom:1rem;
+        left:1rem;
     }
 }
 @media screen and (max-width:508px) {
-    
+    #driver p{
+        font-size:1rem;
+        
+    }
 }
 @media screen and (max-width:407px) {
     #driver{
         margin-top: 4rem;
+    }
+    #driver p{
+        font-size: 0.8rem;
+    }
+    .offerPart h2{
+        font-size: 2rem;
+    }
+    .formControl{
+        width: 17rem;
+    }
+    .offerregisterfield input{
+        width: 17rem;
+    }
+}
+@media screen and (max-width:329px){
+    #driver p{
+        font-size: 0.7rem;
+        position: absolute;
+        bottom: 0.8rem;
+        left: 0.8rem;
     }
 }
