@@ -9,10 +9,11 @@ const Footer = () => {
         <div className='footertxt'>
            {/* <img src={logo}/> */}
            <h1 className='logo-footer'>CarGo.</h1>
+           <hr/>
            <p>With so many options for rental service, you must choose the best company. We give you a wide range of quality rides!</p>
         </div>
 
-        <div className='footerOpt'>
+        {/* <div className='footerOpt'>
            <h2>Discover</h2>
           <Link to="/howtoRent" className='links'>How to Rent</Link>
           <Link to="/FAQS" className='links'>FAQS</Link>
@@ -28,7 +29,7 @@ const Footer = () => {
            <p>+91 9151270246</p>
            <h3>Email</h3>
            <p>raghavawasthi240@gmail.com</p>
-        </div>
+        </div> */}
     </div>
   )
 }

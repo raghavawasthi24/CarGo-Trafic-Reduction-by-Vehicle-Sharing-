@@ -8,7 +8,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 2rem 2rem;
+    padding: 2rem 0rem;
     font-family: 'Roboto', sans-serif;
 }
 .about h2{
@@ -18,14 +18,14 @@
     
 }
 .features{
-    width: 90%;
+    width: 100%;
     margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    background-color: white;
 }
 .features_div{
-    background-color: white;
     width:15rem;
     height: auto;
     display: flex;
@@ -33,6 +33,7 @@
     justify-content: center;
     align-items: center;
     padding: 1rem;
+    margin:0.5rem;
 }
 .features_num{
     width:3rem;
@@ -40,8 +41,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* font-size: 2rem; */
-    /* background-color: #4267b2; */
     background-color: #d0d1d1;
     color: black;
     padding: 1rem;
@@ -56,19 +55,32 @@
     font-weight: bold;
     color: #666769;
     text-align: center;
-    /* margin-left:10px */
+    
 }
 @media screen and (max-width:800px) {
     .about h2{
         font-size:3rem;
     }
+    .features{
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
 }
-@media screen and (max-width:611px){
+@media screen and (max-width:553px){
+    .about h2{
+        font-size: 2rem;
+        margin: 1rem 0.5rem;
+        text-align: center;
+    }
+}
+/* @media screen and (max-width:611px){
      .features{
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-start;
+        align-items: center;
+        justify-content: center;
+        background-color: yellowgreen;
      }
      .features_div{
         width: 100%;
@@ -79,14 +91,17 @@
      }
      .features_txt{
         padding:0.5rem;
-        /* margin-left: 1rem; */
+       
      }
      .features_num{
         width:2rem;
         height: 2rem;
-        /* margin:1rem; */
+        
      }
      .features_num p{
         font-size: 1.3rem;
      }
-}
+} */
+/* @media screen and(max-width:) {
+    
+} */

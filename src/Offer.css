@@ -9,10 +9,12 @@
     height:auto;
     position: relative;
     background-color: black;
+    margin-top: 5rem;
     /* background-image: url("images/offerDriver.jpg"); */
 }
 #driver p{
     width:40%;
+    /* height: 7rem; */
     position: absolute;
     bottom:2rem;
     left:2rem;
@@ -134,4 +136,34 @@
 }
 .hide{
     display: none;
+}
+@media screen and (max-width:1084px) {
+    #driver p{
+        font-size: 2.5rem;
+        width: 40%;
+    }
+}
+@media  screen and (max-width:928px) {
+    #driver p{
+        font-size:2rem;
+        width:35%;
+    }
+}
+@media screen and (max-width:815px) {
+    #driver p{
+        font-size: 1.5rem;
+    }
+}
+@media screen and (max-width:610px) {
+    #driver p{
+        font-size: 1.2rem;
+    }
+}
+@media screen and (max-width:508px) {
+    
+}
+@media screen and (max-width:407px) {
+    #driver{
+        margin-top: 4rem;
+    }
 }

@@ -14,15 +14,23 @@
 .footertxt{
     width:20rem;
     height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .logo-footer{
     color: white;
     font-size: 3rem;
 }
 .footertxt p{
-    margin-top: 1rem;
+    margin: 0.5rem;
+    text-align: center;
 }
-
+.footertxt hr{
+    width:100%;
+    margin:0.5rem;
+}
 .footerOpt{
     display: flex;
     flex-direction:column ;
@@ -36,4 +44,9 @@
 }
 .footerContact h3{
      margin-top: 1rem;
+}
+@media screen and (max-width:348px) {
+    .footertxt hr{
+        width:90%;
+    }
 }

@@ -19,4 +19,18 @@
     width: 100%;
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
+@media screen and (max-width:481px) {
+    .team{
+        margin-top: 1rem;
+    }
+    #agents{
+        font-size: 2.7rem;
+    }
+}
+@media screen and (max-width:333px){
+    #agents{
+        font-size: 2.4rem;
+    }
+} 
