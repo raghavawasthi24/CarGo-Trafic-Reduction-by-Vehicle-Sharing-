@@ -13,7 +13,7 @@ const Contact = () => {
 
   const navigate=useNavigate();
    useEffect(()=>{
-    // console.log(Ridehandler)
+    
     if(!localStorage.getItem("login")){
          navigate("/");
     }
