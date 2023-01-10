@@ -80,7 +80,7 @@ const Contact = () => {
            </form>
            <div className='formMap'>
            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.330820519728!2d77.50053627290335!3d28.649811593123054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ced0607ba86dd%3A0x72a838f9f6307e87!2sWave%20Dream%20Homes!5e0!3m2!1sen!2sin!4v1672546144028!5m2!1sen!2sin"
-           width="90%"
+           width="100%"
            height="450"
            style={{border:0}}
            allowfullscreen=""

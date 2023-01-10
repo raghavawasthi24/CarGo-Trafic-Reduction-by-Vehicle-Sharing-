@@ -4,7 +4,7 @@
     background-color: #ebf0f7;
     display: flex;
     flex-direction: column;
-    margin:2rem;
+    margin:4rem 2rem 2rem 2rem;
 }
 .contact-page h2{
     margin:2rem auto;
@@ -25,6 +25,7 @@
 }
 .formMap{
     width: 60%;
+    margin-right: 4rem;
 }
 .formInputs{
     width:80%;
@@ -51,4 +52,26 @@
     color: red;
     margin-left: 1rem;
     margin-top: -5px;
+}
+@media screen and (max-width:809px){
+    .contact-page{
+        margin: 4rem 0;
+    }
+    .contact{
+        flex-direction: column;
+    }
+    .contact-form{
+        width: 100%;
+    }
+    .formMap{
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+}
+@media screen and (max-width:439px){
+    .contact-form{
+        padding: 0 1rem;
+        margin: auto
+    }
 }
