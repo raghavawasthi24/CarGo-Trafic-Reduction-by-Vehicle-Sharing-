@@ -83,7 +83,7 @@
 }
 .logout{
     background-color: white;
-    position: absolute;
+    position: fixed;
     top:4rem;
     right: 1rem;
     border:1px solid grey; 

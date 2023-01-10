@@ -89,3 +89,13 @@
     font-weight: 500;
     z-index: 99;
 }
+@media screen and (max-width:401px){
+    .loginPage{
+        width:17rem;
+    }
+}
+@media screen and (max-width:334px){
+    .loginPage{
+        width:15rem;
+    }
+}

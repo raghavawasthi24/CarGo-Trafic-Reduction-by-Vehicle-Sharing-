@@ -120,3 +120,13 @@
     padding:0.5rem;
     border-radius: 5px;
 }
+@media screen and (max-width:401px){
+    .registerPage{
+        width:17rem;
+    }
+}
+@media screen and (max-width:334px){
+    .registerPage{
+        width:15rem;
+    }
+}
