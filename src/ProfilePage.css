@@ -29,3 +29,35 @@
     padding:1rem 8rem;
     cursor:pointer;
 }
+@media screen and (max-width:746px) {
+    .requestedRide{
+        padding:1rem 5rem
+    }
+    .nothing{
+        padding: 1rem 5rem;
+    }
+}
+@media screen and (max-width:661px) {
+    .requestedRide{
+        padding:1rem 3rem
+    }
+    .nothing{
+        padding: 1rem 3rem;
+    }
+}
+@media screen and (max-width:426px) {
+    .requestedRide{
+        padding:1rem 2rem
+    }
+    .nothing{
+        padding: 1rem 2rem;
+    }
+}
+@media screen and (max-width:365px) {
+    .requestedRide{
+        padding:1rem 1rem
+    }
+    .nothing{
+        padding: 1rem 1rem;
+    }
+}
