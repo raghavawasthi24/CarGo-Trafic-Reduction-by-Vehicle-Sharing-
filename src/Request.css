@@ -112,6 +112,7 @@
     /* background-color:red; */
     overflow: hidden;
     /* color:white; */
+    z-index: 99;
 }
 .unsuccessful-msg p{
     display: flex;

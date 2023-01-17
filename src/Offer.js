@@ -15,7 +15,8 @@ export let publisher_details={
 }
 
 const Offer = () => {
-  let initialvalues = {
+  let initialvalues =
+   {
     source: "",
     destination: "",
     date: "",
@@ -23,9 +24,9 @@ const Offer = () => {
     vehicle:"",
     Vacancy: "",
     price:"",
-    owner:"",
+    owner:localStorage.getItem('profile_id'),
+    full_name:localStorage.getItem('profile_name'),
   };
-
   const navigate=useNavigate();
    useEffect(()=>{
     // console.log(Ridehandler)

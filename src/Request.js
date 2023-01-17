@@ -107,9 +107,9 @@ const Request = (handleData) => {
       axios.get(`https://web-production-0189.up.railway.app/vehicle/showrides/${formvalues.pickup}/${formvalues.destination}/${formvalues.date}/${formvalues.vacancy}`)
       .then(res=>{
         Ridehandler=[];
-        // console.log(res.data);
+        console.log(res.data);
         Ridehandler.push(res.data);
-        // console.log(Ridehandler);
+        console.log(Ridehandler);
         setLoading(false);
         navigate("/showRide")
       }).catch(err=>{
