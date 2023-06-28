@@ -17,6 +17,7 @@ const Register = () => {
         full_name:"",
         mobile_number:"",
         email:"",
+        email_of_relative:"",
         gender:"",
         age:"",
         password:"",
@@ -71,6 +72,14 @@ const Register = () => {
         else{
             setnoerror(false)
             errors.email="**Invalid Email Address";
+        }
+
+        if(cemail.test(formvalues.email_of_relative)){
+            errors.email_of_relative="";
+        }
+        else{
+            setnoerror(false)
+            errors.email_of_relative="**Invalid Email Address";
         }
 
         if(!cage.test(formvalues.age)){
@@ -132,6 +141,7 @@ const Register = () => {
             axios.post("https://vehicle-sharing-production.up.railway.app/accounts/register/",{
                 full_name:formvalues.full_name,
                 email:formvalues.email,
+                email_of_relative:formvalues.email_of_relative,
                 mobile_number:formvalues.mobile_number,
                 gender:formvalues.gender,
                 age:formvalues.age,
@@ -174,6 +184,10 @@ const Register = () => {
             <p className='registererror'>{formerror.mobile_number}</p>
             <input type="text" name="email" value={formvalues.email} placeholder="Email Address" onChange={userHandler} className="inputfield"/>
             <p className='registererror'>{formerror.email}</p>
+
+            <input type="text" name="email" value={formvalues.email_of_relative} placeholder="Email Address" onChange={userHandler} className="inputfield"/>
+            <p className='registererror'>{formerror.email_of_relative}</p>
+
             <label id="gender">Gender</label>
             <div className="genderControl">
                 <div className="genderCategory">
