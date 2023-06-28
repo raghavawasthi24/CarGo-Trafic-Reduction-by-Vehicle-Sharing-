@@ -14,7 +14,7 @@ const ProfilePage = () => {
 
   useEffect(()=>{
     if(requested==true){
-    axios.get('https://web-production-0189.up.railway.app/vehicle/allrides/4/')
+    axios.get('https://vehicle-sharing-production.up.railway.app/vehicle/allrides/4/')
     .then((res)=>{
       setridesList(res.data.rides_requested_by_me);
       console.log(ridesList);
@@ -34,7 +34,7 @@ const ProfilePage = () => {
   const ridesOffered=()=>{
     setrequested(false);
     setTurn(false);
-    axios.get('https://web-production-0189.up.railway.app/vehicle/allrides/4/')
+    axios.get('https://vehicle-sharing-production.up.railway.app/vehicle/allrides/4/')
     .then((res)=>{
       setridesList(res.data.Rides_offered_by_me);
       console.log(ridesList);

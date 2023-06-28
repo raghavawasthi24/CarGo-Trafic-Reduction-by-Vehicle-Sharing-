@@ -23,7 +23,7 @@ const Ride = (props) => {
 
   const booked=()=>{
     setLoading(true);
-    axios.post(`https://web-production-0189.up.railway.app/vehicle/requestrides/${props.id}/${passengerDetails.vacancy}`,{
+    axios.post(`https://vehicle-sharing-production.up.railway.app/vehicle/requestrides/${props.id}/${passengerDetails.vacancy}`,{
        source:props.source,
        ride:props.id,
        destination:props.destination,

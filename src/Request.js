@@ -104,7 +104,7 @@ const Request = (handleData) => {
     if(error==true){
       setLoading(true);
       passengerDetails=formvalues;
-      axios.get(`https://web-production-0189.up.railway.app/vehicle/showrides/${formvalues.pickup}/${formvalues.destination}/${formvalues.date}/${formvalues.vacancy}`)
+      axios.get(`https://vehicle-sharing-production.up.railway.app/vehicle/showrides/${formvalues.pickup}/${formvalues.destination}/${formvalues.date}/${formvalues.vacancy}`)
       .then(res=>{
         Ridehandler=[];
         console.log(res.data);

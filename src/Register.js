@@ -129,7 +129,7 @@ const Register = () => {
     useEffect(()=>{
         if(noerror==true){
             setLoading(true);
-            axios.post("https://web-production-0189.up.railway.app/accounts/register/",{
+            axios.post("https://vehicle-sharing-production.up.railway.app/accounts/register/",{
                 full_name:formvalues.full_name,
                 email:formvalues.email,
                 mobile_number:formvalues.mobile_number,

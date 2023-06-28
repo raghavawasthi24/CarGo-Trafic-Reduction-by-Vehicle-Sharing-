@@ -67,7 +67,7 @@ const Login = () => {
     useEffect(()=>{
         if(noerror==true){
             setLoading(true);
-            axios.post("https://web-production-0189.up.railway.app/accounts/login/",{
+            axios.post("https://vehicle-sharing-production.up.railway.app/accounts/login/",{
                 mobile_number:formvalues.mobile_number,
                 password:formvalues.password
             }).then((res)=>{

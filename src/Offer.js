@@ -145,7 +145,7 @@ const Offer = () => {
       setsubmitcontrol(true)
     }
     // if(error==true){
-    //   axios.post(`https://web-production-0189.up.railway.app/vehicle/publish/`,{
+    //   axios.post(`https://vehicle-sharing-production.up.railway.app/vehicle/publish/`,{
     //     source: formvalues.source,
     //     destination: formvalues.destination,
     //     date: formvalues.date,
@@ -170,7 +170,7 @@ const Offer = () => {
   useEffect(()=>{
       if(error==true){
         setLoading(true);
-        axios.post(`https://web-production-0189.up.railway.app/vehicle/publish/`,{
+        axios.post(`https://vehicle-sharing-production.up.railway.app/vehicle/publish/`,{
         source: formvalues.source,
         destination: formvalues.destination,
         date: formvalues.date,
