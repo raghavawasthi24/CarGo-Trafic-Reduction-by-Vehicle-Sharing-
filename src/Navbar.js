@@ -44,7 +44,7 @@ const closeMenu=()=>{
   return (
     <div className="navbar">
         {/* <img src={logo}/> */}
-        <h1 className='logo'>CarGo.</h1>
+        <h1 className='logo'>TanTum.</h1>
         <nav>
           <Link to="/home" className='link'>Home</Link>
           <Link to="/howtoRent" className='link'>How to Rent</Link>

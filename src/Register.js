@@ -185,7 +185,7 @@ const Register = () => {
             <input type="text" name="email" value={formvalues.email} placeholder="Email Address" onChange={userHandler} className="inputfield"/>
             <p className='registererror'>{formerror.email}</p>
 
-            <input type="text" name="email" value={formvalues.email_of_relative} placeholder="Email Address" onChange={userHandler} className="inputfield"/>
+            <input type="text" name="email_of_relative" value={formvalues.email_of_relative} placeholder="Relative Email Address" onChange={userHandler} className="inputfield"/>
             <p className='registererror'>{formerror.email_of_relative}</p>
 
             <label id="gender">Gender</label>

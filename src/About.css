@@ -74,34 +74,3 @@
         text-align: center;
     }
 }
-/* @media screen and (max-width:611px){
-     .features{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        background-color: yellowgreen;
-     }
-     .features_div{
-        width: 100%;
-        padding:0.5rem;
-        flex-direction: row;
-        justify-content: flex-start;
-        background-color: red;
-     }
-     .features_txt{
-        padding:0.5rem;
-       
-     }
-     .features_num{
-        width:2rem;
-        height: 2rem;
-        
-     }
-     .features_num p{
-        font-size: 1.3rem;
-     }
-} */
-/* @media screen and(max-width:) {
-    
-} */

@@ -113,7 +113,7 @@ const Login = () => {
     <div className={loading?'hide':'login'}>
         
         <div class="loginControls">
-        <h1>CarGo.</h1>
+        <h1>TanTum.</h1>
             <form onSubmit={submitHandler} className="loginPage">
                 <input type="text" name="mobile_number" value={formvalues.mobile_number} placeholder="Mobile Number" onChange={userHandler}/>
                 <p className='loginerror'>{formerror.mobile_number}</p>
