@@ -138,23 +138,29 @@ const Register = () => {
     useEffect(()=>{
         if(noerror==true){
             setLoading(true);
-            axios.post("https://vehicle-sharing-production.up.railway.app/accounts/register/",{
-                full_name:formvalues.full_name,
-                email:formvalues.email,
-                email_of_relative:formvalues.email_of_relative,
-                mobile_number:formvalues.mobile_number,
-                gender:formvalues.gender,
-                age:formvalues.age,
-                password:formvalues.password,
-                password2:formvalues.password2,
-            }).then((res)=>{
-                console.log(res)
+            axios
+              .post(
+                "https://divyanshurana312.pythonanywhere.com/accounts/register/",
+                {
+                  full_name: formvalues.full_name,
+                  email: formvalues.email,
+                  email_of_relative: formvalues.email_of_relative,
+                  mobile_number: formvalues.mobile_number,
+                  gender: formvalues.gender,
+                  age: formvalues.age,
+                  password: formvalues.password,
+                  password2: formvalues.password2,
+                }
+              )
+              .then((res) => {
+                console.log(res);
                 setisRegisterConfirm(true);
                 setLoading(false);
-            }).catch((err)=>{
+              })
+              .catch((err) => {
                 console.log(err);
                 setLoading(false);
-            })
+              });
             console.log(formvalues);
         }
     },[submitcall])

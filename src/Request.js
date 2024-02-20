@@ -1,21 +1,18 @@
-import React,{useEffect, useState} from 'react';
+import React, { useEffect, useState } from "react";
 import "./Request.css";
 import redCircle from "./images/redCircle.png";
-import blueCircle from"./images/blueCircle.png";
-import axios from 'axios';
-import ShowRides from './ShowRides';
-import { Navigate, useNavigate } from 'react-router-dom';
+import blueCircle from "./images/blueCircle.png";
+import axios from "axios";
+import ShowRides from "./ShowRides";
+import { Navigate, useNavigate } from "react-router-dom";
 import About from "./About";
-import Team from './Team';
-import Navbar from './Navbar';
-import Footer from './Footer';
+import Team from "./Team";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 import HashLoader from "react-spinners/HashLoader";
 
-export let Ridehandler=[
-
-];
-export let passengerDetails={}
-
+export let Ridehandler = [];
+export let passengerDetails = {};
 
 const Request = (handleData) => {
   const initialvalues = {
@@ -26,181 +23,186 @@ const Request = (handleData) => {
     vacancy: "",
   };
 
-  
-
   const [formvalues, setformvalues] = useState(initialvalues);
   const [error, seterror] = useState(false);
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const [formerror, setformerror] = useState({});
-  const [isavailabeRide,setisavailableRide]=useState(false);
-  const [submitcontrol,setsubmitcontrol]=useState(false);
-  const [loading,setLoading]=useState(false);
+  const [isavailabeRide, setisavailableRide] = useState(false);
+  const [submitcontrol, setsubmitcontrol] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const userHandler = (e) => {
     const { name, value } = e.target;
-    setformvalues({ ...formvalues, [name]: value });   
-  }
+    setformvalues({ ...formvalues, [name]: value });
+  };
 
-  const errors_form=()=> {
+  const errors_form = () => {
     seterror(true);
     const errors = {};
 
-
-    if (formvalues.pickup!="") {
-      errors.pickup= "";
-    }
-    else {
+    if (formvalues.pickup != "") {
+      errors.pickup = "";
+    } else {
       seterror(false);
       errors.pickup = "**Please enter pickup";
     }
 
-
-
-    if (formvalues.destination!="") {
+    if (formvalues.destination != "") {
       errors.destination = "";
-    }
-    else {
+    } else {
       seterror(false);
       errors.destination = "**Please enter destination";
     }
 
-
-    if (formvalues.date=="") {
+    if (formvalues.date == "") {
       seterror(false);
       errors.date = "**Please select Date";
-    }
-    else {
+    } else {
       errors.date = "";
     }
-
-
-
 
     if (formvalues.vacancy == "") {
       seterror(false);
       errors.vacancy = "**Please select Passenger";
-    }
-    else {
+    } else {
       errors.vacancy = "";
     }
-   
-    return errors;
-  }
 
+    return errors;
+  };
 
   const validateform = (e) => {
     e.preventDefault();
     setformerror(errors_form());
-    if(submitcontrol==true){
-      setsubmitcontrol(false)
-    }
-    else{
-      setsubmitcontrol(true)
+    if (submitcontrol == true) {
+      setsubmitcontrol(false);
+    } else {
+      setsubmitcontrol(true);
     }
     // console.log(formerror);
-  }
+  };
 
-  useEffect(()=>{
-    if(error==true){
+  useEffect(() => {
+    if (error == true) {
       setLoading(true);
-      passengerDetails=formvalues;
-      axios.get(`https://vehicle-sharing-production.up.railway.app/vehicle/showrides/${formvalues.pickup}/${formvalues.destination}/${formvalues.date}/${formvalues.vacancy}`)
-      .then(res=>{
-        Ridehandler=[];
-        console.log(res.data);
-        Ridehandler.push(res.data);
-        console.log(Ridehandler);
-        setLoading(false);
-        navigate("/showRide")
-      }).catch(err=>{
-        console.log(err)
-        setisavailableRide(true);
-        setLoading(false);
-        toggle();
-        
-      })
-      
+      passengerDetails = formvalues;
+      axios
+        .get(
+          `https://divyanshurana312.pythonanywhere.com/vehicle/showrides/${formvalues.pickup}/${formvalues.destination}/${formvalues.date}/${formvalues.vacancy}`
+        )
+        .then((res) => {
+          Ridehandler = [];
+          console.log(res.data);
+          Ridehandler.push(res.data);
+          console.log(Ridehandler);
+          setLoading(false);
+          navigate("/showRide");
+        })
+        .catch((err) => {
+          console.log(err);
+          setisavailableRide(true);
+          setLoading(false);
+          toggle();
+        });
+
       console.log(formvalues);
       console.log(passengerDetails);
     }
-  },[submitcontrol])
+  }, [submitcontrol]);
 
-  const toggle=()=>{
-    setTimeout(()=>{
+  const toggle = () => {
+    setTimeout(() => {
       setisavailableRide(false);
       setformvalues(initialvalues);
-    },3000)
-  }
-
- 
-
+    }, 3000);
+  };
 
   return (
     <>
-    <div className={loading?"loading":"hide"}>
-      <HashLoader
-          color={'#4054B2'}
-          loading={loading}
-          size={50}
-        />
-    </div>
-    <div className={loading?"hide":'offerPage'}>
-      <Navbar/>
-      <div className='request'>
-        <div className='requestTextArea'>
-           <h2>
-            Earn. Connect. Contribute to the Society
-           </h2>
-           <p>We let YOU pick the car that will ensure the best trip ever.</p>
-           <p>Give us a shout and we will ready to get it ready for you.</p>
-        </div>
-        <div className='requestSec'>
-            <div className='requestCar'>
-            <h2>Book Your Ride</h2>
-       <form onSubmit={validateform}>
-         <div className="signinputs">
-           <div className="pickup registerfield">
-            <div className='inputfields'>
-              <img src={redCircle}/>
-                       <input type="text" placeholder="Select Pickup" name="pickup" value={formvalues.pickup} onChange={userHandler} />
-            </div>
-           <p className='throwerror'>{formerror.pickup}</p>
-         </div>
-       <div className="destination registerfield">
-          <div className='inputfields'>
-            <img src={blueCircle}/>
-            <input type="text" name="destination" placeholder="Select Destination" value={formvalues.destination} onChange={userHandler} />
+      <div className={loading ? "loading" : "hide"}>
+        <HashLoader color={"#4054B2"} loading={loading} size={50} />
+      </div>
+      <div className={loading ? "hide" : "offerPage"}>
+        <Navbar />
+        <div className="request">
+          <div className="requestTextArea">
+            <h2>Earn. Connect. Contribute to the Society</h2>
+            <p>We let YOU pick the car that will ensure the best trip ever.</p>
+            <p>Give us a shout and we will ready to get it ready for you.</p>
           </div>
-          <p className='throwerror'>{formerror.destination}</p>
-       </div>
-       <div className="date registerfield">
-         <input type="date" name="date" placeholder="Select Date" value={formvalues.date} onChange={userHandler} />
-         <p className='throwerror'>{formerror.date}</p>
-       </div>
-       <div className="vacancy registerfield">
-         <input type="number" name="vacancy" placeholder="Passenger" onChange={userHandler} value={formvalues.vacancy} />
-         <p className='throwerror'>{formerror.vacancy}</p>
-       </div>
-         </div>
-      
-      
-         <div>
-       <input type="submit" className='submits' value="Search Rides"/>
-         </div>
-      
-       </form>
-            </div>
-        </div>
-        <div className={isavailabeRide?"unsuccessful-msg":"hide"}>
-         <p>No Ride is available!</p>
-      </div>
-      </div>
-      <About/>
-      <Team/>
-      <Footer/>
-    </div>
-    </>
-  )
-}
+          <div className="requestSec">
+            <div className="requestCar">
+              <h2>Book Your Ride</h2>
+              <form onSubmit={validateform}>
+                <div className="signinputs">
+                  <div className="pickup registerfield">
+                    <div className="inputfields">
+                      <img src={redCircle} />
+                      <input
+                        type="text"
+                        placeholder="Select Pickup"
+                        name="pickup"
+                        value={formvalues.pickup}
+                        onChange={userHandler}
+                      />
+                    </div>
+                    <p className="throwerror">{formerror.pickup}</p>
+                  </div>
+                  <div className="destination registerfield">
+                    <div className="inputfields">
+                      <img src={blueCircle} />
+                      <input
+                        type="text"
+                        name="destination"
+                        placeholder="Select Destination"
+                        value={formvalues.destination}
+                        onChange={userHandler}
+                      />
+                    </div>
+                    <p className="throwerror">{formerror.destination}</p>
+                  </div>
+                  <div className="date registerfield">
+                    <input
+                      type="date"
+                      name="date"
+                      placeholder="Select Date"
+                      value={formvalues.date}
+                      onChange={userHandler}
+                    />
+                    <p className="throwerror">{formerror.date}</p>
+                  </div>
+                  <div className="vacancy registerfield">
+                    <input
+                      type="number"
+                      name="vacancy"
+                      placeholder="Passenger"
+                      onChange={userHandler}
+                      value={formvalues.vacancy}
+                    />
+                    <p className="throwerror">{formerror.vacancy}</p>
+                  </div>
+                </div>
 
-export default Request
+                <div>
+                  <input
+                    type="submit"
+                    className="submits"
+                    value="Search Rides"
+                  />
+                </div>
+              </form>
+            </div>
+          </div>
+          <div className={isavailabeRide ? "unsuccessful-msg" : "hide"}>
+            <p>No Ride is available!</p>
+          </div>
+        </div>
+        <About />
+        <Team />
+        <Footer />
+      </div>
+    </>
+  );
+};
+
+export default Request;

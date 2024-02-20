@@ -1,107 +1,96 @@
-import React, { useEffect } from 'react';
-import { useState } from 'react';
+import React, { useEffect } from "react";
+import { useState } from "react";
 import "./Offer.css";
 import driver from "./images/driver2.jpg";
 import offerRide from "./images/offerRide.png";
-import { profile_data } from './Login';
-import Navbar from './Navbar';
-import Footer from './Footer';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { profile_data } from "./Login";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
+import { Navigate, useNavigate } from "react-router-dom";
 import HashLoader from "react-spinners/HashLoader";
-import axios from 'axios';
+import axios from "axios";
 
-export let publisher_details={
-  name:"",
-}
+export let publisher_details = {
+  name: "",
+};
 
 const Offer = () => {
-  let initialvalues =
-   {
+  let initialvalues = {
     source: "",
     destination: "",
     date: "",
     time: "",
-    vehicle:"",
+    vehicle: "",
     Vacancy: "",
-    price:"",
-    owner:localStorage.getItem('profile_id'),
-    full_name:localStorage.getItem('profile_name'),
+    price: "",
+    owner: localStorage.getItem("profile_id"),
+    full_name: localStorage.getItem("profile_name"),
   };
-  const navigate=useNavigate();
-   useEffect(()=>{
-    // console.log(Ridehandler)
-    if(!localStorage.getItem("login")){
-         navigate("/");
-    }
-  })
+  // const navigate=useNavigate();
+  //  useEffect(()=>{
+  //   // console.log(Ridehandler)
+  //   if(!localStorage.getItem("login")){
+  //        navigate("/");
+  //   }
+  // })
 
   const [formvalues, setformvalues] = useState(initialvalues);
   const [error, seterror] = useState(false);
   // const navigate=useNavigate();
   const [formerror, setformerror] = useState({});
-  const [issuccessful,setIssuccessful]=useState(false);
-  const [loading,setLoading]=useState(false);
-  const [submitcontrol,setsubmitcontrol]=useState(false);
+  const [issuccessful, setIssuccessful] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [submitcontrol, setsubmitcontrol] = useState(false);
 
   const userHandler = (e) => {
     const { name, value } = e.target;
-    setformvalues({ ...formvalues, [name]: value });   
-  }
+    setformvalues({ ...formvalues, [name]: value });
+  };
 
-  const errors_form=()=> {
+  const errors_form = () => {
     seterror(true);
     const errors = {};
     const cvacancy = /^[1-9]{1}$/;
     const cprice = /^[1-9]([0-9]){0,5}$/;
 
-    if (formvalues.source!="") {
-      errors.source= "";
+    if (formvalues.source != "") {
+      errors.source = "";
       // seterror(true);
       // console.log(error.source)
-    }
-    else {
+    } else {
       seterror(false);
       errors.source = "**Please enter source";
     }
 
-
-
-    if (formvalues.destination!="") {
+    if (formvalues.destination != "") {
       errors.destination = "";
       // seterror(true);
       // console.log(error.destination)
-    }
-    else {
+    } else {
       seterror(false);
       errors.destination = "**Please enter destination";
     }
 
-
-    if (formvalues.date=="") {
+    if (formvalues.date == "") {
       seterror(false);
       errors.date = "**Please select Date";
-    }
-    else {
+    } else {
       errors.date = "";
     }
 
-    
-    if (formvalues.time=="") {
+    if (formvalues.time == "") {
       seterror(false);
       errors.time = "**Please select Time";
-    }
-    else {
+    } else {
       errors.time = "";
     }
 
-    if (formvalues.vehicle=="") {
+    if (formvalues.vehicle == "") {
       seterror(false);
       errors.vehicle = "**This field is required";
-    }
-    else {
+    } else {
       errors.vehicle = "";
     }
-
 
     // if (formvalues.Vacancy == "") {
     //   seterror(false);
@@ -113,39 +102,33 @@ const Offer = () => {
     // else{
     //   errors.Vacancy="";
     // }
-    if(!cvacancy.test(formvalues.Vacancy)){
+    if (!cvacancy.test(formvalues.Vacancy)) {
       seterror(false);
-      errors.Vacancy="**Vacancy must range between 1-9"
-    }
-    else{
-      errors.Vacancy="";
+      errors.Vacancy = "**Vacancy must range between 1-9";
+    } else {
+      errors.Vacancy = "";
     }
 
     if (!cprice.test(formvalues.price)) {
       seterror(false);
       errors.price = "**This price is invalid";
-    }
-    else {
+    } else {
       errors.price = "";
     }
-   
-
 
     return errors;
-  }
-
+  };
 
   const validateform = (e) => {
     e.preventDefault();
     setformerror(errors_form());
-    if(submitcontrol==true){
-      setsubmitcontrol(false)
-    }
-    else{
-      setsubmitcontrol(true)
+    if (submitcontrol == true) {
+      setsubmitcontrol(false);
+    } else {
+      setsubmitcontrol(true);
     }
     // if(error==true){
-    //   axios.post(`https://vehicle-sharing-production.up.railway.app/vehicle/publish/`,{
+    //   axios.post(`https://divyanshurana312.pythonanywhere.com/vehicle/publish/`,{
     //     source: formvalues.source,
     //     destination: formvalues.destination,
     //     date: formvalues.date,
@@ -163,121 +146,155 @@ const Offer = () => {
     //   })
     //   console.log(formvalues);
     // }
-  }
+  };
 
-  
-
-  useEffect(()=>{
-      if(error==true){
-        setLoading(true);
-        axios.post(`https://vehicle-sharing-production.up.railway.app/vehicle/publish/`,{
-        source: formvalues.source,
-        destination: formvalues.destination,
-        date: formvalues.date,
-        time: formvalues.time,
-        vehicle:formvalues.vehicle,
-        Vacancy: formvalues.Vacancy,
-        price:formvalues.price,
-        owner:localStorage.getItem("profile_id"),
-        full_name:localStorage.getItem("profile_name"),
-      })
-      .then(res=>{
-        console.log(res);
-        setLoading(false);
-        successful();
-      }).catch(err=>{
-        console.log(err)
-        setLoading(false);
-      })
+  useEffect(() => {
+    if (error == true) {
+      setLoading(true);
+      axios
+        .post(`https://divyanshurana312.pythonanywhere.com/vehicle/publish/`, {
+          source: formvalues.source,
+          destination: formvalues.destination,
+          date: formvalues.date,
+          time: formvalues.time,
+          vehicle: formvalues.vehicle,
+          Vacancy: formvalues.Vacancy,
+          price: formvalues.price,
+          owner: localStorage.getItem("profile_id"),
+          full_name: localStorage.getItem("profile_name"),
+        })
+        .then((res) => {
+          console.log(res);
+          setLoading(false);
+          successful();
+        })
+        .catch((err) => {
+          console.log(err);
+          setLoading(false);
+        });
       console.log(formvalues);
-      }
-  },[submitcontrol])
+    }
+  }, [submitcontrol]);
 
-  const successful=()=>{
-    setIssuccessful(true)
-    setTimeout(()=>{
+  const successful = () => {
+    setIssuccessful(true);
+    setTimeout(() => {
       setIssuccessful(false);
-      setformvalues(initialvalues)
+      setformvalues(initialvalues);
       // window.location.reload();
-    },3000)
-  }
+    }, 3000);
+  };
 
   return (
     <>
-    <div className={loading?"loading":"hide"}>
-      <HashLoader
-          color={'#4054B2'}
-          loading={loading}
-          size={50}
-        />
-    </div>
-    <div className={loading?"hide":"offerPage"}>
-      <Navbar/>
-      <div className="offer">
-      <div id="driver">
-        <img src={driver}/>
-         <p>Start. Share your Vehicle with others.</p>
+      <div className={loading ? "loading" : "hide"}>
+        <HashLoader color={"#4054B2"} loading={loading} size={50} />
       </div>
-      <div className='offerSec'>
-        <div className='offerPart'>
-          <h2>Publish Your Ride</h2>
-          <img src={offerRide} className="offerRideimg"/>
-        </div>
-         <form onSubmit={validateform} className="formControl">
-          <div className="offersigninputs">
-            <div className="offerpickup offerregisterfield">
-            <div className='offerinputfield'>
-               {/* <img src={redCircle}/> */}
-               <input type="text" placeholder="Select Source" name="source" value={formvalues.source} onChange={userHandler} />
+      <div className={loading ? "hide" : "offerPage"}>
+        <Navbar />
+        <div className="offer">
+          <div id="driver">
+            <img src={driver} />
+            <p>Start. Share your Vehicle with others.</p>
+          </div>
+          <div className="offerSec">
+            <div className="offerPart">
+              <h2>Publish Your Ride</h2>
+              <img src={offerRide} className="offerRideimg" />
             </div>
-            <p className='offerthrowerror'>{formerror.source}</p>
-            </div>
-          <div className="offerdestination offerregisterfield">
-            <div className='offerinputfield'>
-              {/* <img src={blueCircle}/> */}
-              <input type="text" name="destination" placeholder="Select Destination" value={formvalues.destination} onChange={userHandler} />
-           </div>
-           <p className='offerthrowerror'>{formerror.destination}</p>
-         </div>
-          <div className="offerdate offerregisterfield">
-            <input type="date" name="date" placeholder="Select Date" value={formvalues.date} onChange={userHandler} />
-            <p className='offerthrowerror'>{formerror.date}</p>
-         </div>
-         <div className="offertime offerregisterfield">
-           <input type="time" name="time" placeholder="Time" onChange={userHandler} value={formvalues.time} />
-           <p className='offerthrowerror'>{formerror.time}</p>
-         </div>
-         <div className="offervehicle offerregisterfield">
-           <input type="text" name="vehicle" placeholder="Vehicle" onChange={userHandler} value={formvalues.vehicle} />
-           <p className='offerthrowerror'>{formerror.vehicle}</p>
-         </div>
-      
-         <div className="offervacancy offerregisterfield">
-           <input type="text" name="Vacancy" placeholder="Vacancy" onChange={userHandler} value={formvalues.Vacancy} />
-           <p className='offerthrowerror'>{formerror.Vacancy}</p>
-         </div>
-         <div className="offerprice offerregisterfield">
-           <input type="text" name="price" placeholder="Price" onChange={userHandler} value={formvalues.price} />
-           <p className='offerthrowerror'>{formerror.price}</p>
-         </div>
-         </div>
-        <div>
-          <input type="submit" className='offersubmits' value="Publish"/>
-        </div>
-      
-         </form>
-      </div>
-      <div className={issuccessful?"successful-msg":"hide"}>
-         <p>Your Ride is successfully published</p>
-      </div>
-      
-      
-      
-        </div>
-        <Footer/>
-    </div>
-  </>
-  )
-}
+            <form onSubmit={validateform} className="formControl">
+              <div className="offersigninputs">
+                <div className="offerpickup offerregisterfield">
+                  <div className="offerinputfield">
+                    {/* <img src={redCircle}/> */}
+                    <input
+                      type="text"
+                      placeholder="Select Source"
+                      name="source"
+                      value={formvalues.source}
+                      onChange={userHandler}
+                    />
+                  </div>
+                  <p className="offerthrowerror">{formerror.source}</p>
+                </div>
+                <div className="offerdestination offerregisterfield">
+                  <div className="offerinputfield">
+                    {/* <img src={blueCircle}/> */}
+                    <input
+                      type="text"
+                      name="destination"
+                      placeholder="Select Destination"
+                      value={formvalues.destination}
+                      onChange={userHandler}
+                    />
+                  </div>
+                  <p className="offerthrowerror">{formerror.destination}</p>
+                </div>
+                <div className="offerdate offerregisterfield">
+                  <input
+                    type="date"
+                    name="date"
+                    placeholder="Select Date"
+                    value={formvalues.date}
+                    onChange={userHandler}
+                  />
+                  <p className="offerthrowerror">{formerror.date}</p>
+                </div>
+                <div className="offertime offerregisterfield">
+                  <input
+                    type="time"
+                    name="time"
+                    placeholder="Time"
+                    onChange={userHandler}
+                    value={formvalues.time}
+                  />
+                  <p className="offerthrowerror">{formerror.time}</p>
+                </div>
+                <div className="offervehicle offerregisterfield">
+                  <input
+                    type="text"
+                    name="vehicle"
+                    placeholder="Vehicle"
+                    onChange={userHandler}
+                    value={formvalues.vehicle}
+                  />
+                  <p className="offerthrowerror">{formerror.vehicle}</p>
+                </div>
 
-export default Offer
+                <div className="offervacancy offerregisterfield">
+                  <input
+                    type="text"
+                    name="Vacancy"
+                    placeholder="Vacancy"
+                    onChange={userHandler}
+                    value={formvalues.Vacancy}
+                  />
+                  <p className="offerthrowerror">{formerror.Vacancy}</p>
+                </div>
+                <div className="offerprice offerregisterfield">
+                  <input
+                    type="text"
+                    name="price"
+                    placeholder="Price"
+                    onChange={userHandler}
+                    value={formvalues.price}
+                  />
+                  <p className="offerthrowerror">{formerror.price}</p>
+                </div>
+              </div>
+              <div>
+                <input type="submit" className="offersubmits" value="Publish" />
+              </div>
+            </form>
+          </div>
+          <div className={issuccessful ? "successful-msg" : "hide"}>
+            <p>Your Ride is successfully published</p>
+          </div>
+        </div>
+        <Footer />
+      </div>
+    </>
+  );
+};
+
+export default Offer;
